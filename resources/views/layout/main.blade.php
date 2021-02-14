@@ -40,8 +40,8 @@
                 </div>
                 <div class="col-md-4 col-12 text-right">
                     <p class="my-md-4 header-links">
-                        <!-- <a href="/login" class="px-2"> Sign In</a>
-                        <a href="/register" class="px-2"> Create Account </a> -->
+                        <a href="/login" class="px-2"> Sign In</a>
+                        <a href="/register" class="px-2"> Create Account </a>
 
                         <!-- laravel navbar -->
 <!--                         
@@ -61,13 +61,13 @@
                                 @guest
                                     @if (Route::has('login'))
                                         <li class="nav-item">
-                                            <a class="px-2 nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            <a class="px-2 nav-link" href="{{ route('login') }}"></a>
                                         </li>
                                     @endif
                                     
                                     @if (Route::has('register'))
                                         <li class="nav-item">
-                                            <a class="px-2 nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            <a class="px-2 nav-link" href="{{ route('register') }}"></a>
                                         </li>
                                     @endif
                                 @else
