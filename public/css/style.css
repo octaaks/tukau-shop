@@ -301,3 +301,7 @@ header .site-title{
     justify-content: center;
     align-items: center;
 }
+
+.front-title{
+    vertical-align: middle;
+}
