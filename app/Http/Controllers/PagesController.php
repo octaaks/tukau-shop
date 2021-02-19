@@ -28,6 +28,6 @@ class PagesController extends Controller
 
     public function adminPage()
     {
-        return view('admin');
+        return view('dashboard');
     }
 }

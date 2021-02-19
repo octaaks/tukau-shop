@@ -26,17 +26,9 @@ Route::get('/daging', function () {
     return view('daging');
 });
 
-Route::get('tukau/administrator', function () {
-    return view('auth/login');
-});
+Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@adminLogin');
 
-Route::get('tukau/administrator/index', function () {
-    return view('admin');
-});
-
-// Route::get('/tukau/administrator', 'PagesController@adminLogin');
-
-// Route::get('tukau/administrator/index', 'PagesController@adminPage');
+Route::get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@adminPage');
 
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
