@@ -19,9 +19,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('/css/style.css')); ?>">
 
-    <title> @yield('title')</title>
+    <title> <?php echo $__env->yieldContent('title'); ?></title>
 
 </head>
 
@@ -46,44 +46,50 @@
                 <div class="col-md-4 text-right">
                     <ul class="px-2 navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
+                        <?php if(auth()->guard()->guest()): ?>
                         <p class="my-md-4 header-links">
                             <a href="/tukau/administrator/" class="px-2"> Sign In</a>
                             <a href="/register" class="px-2"> Create Account </a>
 
                         </p>
-                        @if (Route::has('login'))
+                        <?php if(Route::has('login')): ?>
                         
                         <li class="nav-item">
-                            <a class="px-2 nav-link" href="{{ route('login') }}"></a>
+                            <a class="px-2 nav-link" href="<?php echo e(route('login')); ?>"></a>
                         </li>
-                        @endif
+                        <?php endif; ?>
 
-                        @if (Route::has('register'))
+                        <?php if(Route::has('register')): ?>
                         <li class="nav-item">
-                            <a class="px-2 nav-link" href="{{ route('register') }}"></a>
+                            <a class="px-2 nav-link" href="<?php echo e(route('register')); ?>"></a>
                         </li>
-                        @endif
-                        @else
+                        <?php endif; ?>
+                        <?php else: ?>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                <?php echo e(Auth::user()->name); ?>
+
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <!-- <a class="dropdown-item" href="{{ route('logout') }}" -->
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                <!-- <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" -->
+                                <a class="dropdown-item" href="/tukau/administrator/index">
+                                    Dashboard
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    <?php echo e(__('Logout')); ?>
+
+                                </a>
+
+                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" class="d-none">
+                                    <?php echo csrf_field(); ?>
                                 </form>
                             </div>
                         </li>
-                        @endguest
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -99,10 +105,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/') }}">HOME<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<?php echo e(url('/')); ?>">HOME<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/shope') }}">SHOP</a>
+                            <a class="nav-link" href="<?php echo e(url('/shope')); ?>">SHOP</a>
                         </li>
 
                 </div>
@@ -122,19 +128,7 @@
 
     <!--end header-->
 
-    @yield('container');
-
-
-
-
-
-
-
-
-
-
-
-
+    <?php echo $__env->yieldContent('container'); ?>;
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -146,4 +140,4 @@
     <script src="./js/main.js"></script>
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\tukau\resources\views/layouts/main.blade.php ENDPATH**/ ?>
