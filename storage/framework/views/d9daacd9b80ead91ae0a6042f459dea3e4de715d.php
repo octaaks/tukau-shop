@@ -130,18 +130,6 @@
 
     <?php echo $__env->yieldContent('container'); ?>;
 
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -152,4 +140,4 @@
     <script src="./js/main.js"></script>
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\tukau\resources\views/layout/main.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\tukau\resources\views/layouts/main.blade.php ENDPATH**/ ?>

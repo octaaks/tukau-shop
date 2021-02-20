@@ -21,13 +21,18 @@ class PagesController extends Controller
         return view('daging');
     }
 
-    public function adminLogin()
+    public function loginPage()
     {
-        return view('auth/login');
+        return view('auth.login');
     }
 
-    public function adminPage()
+    public function dashboard()
     {
-        return view('admin');
+        return view('dashboard');
+    }
+
+    public function manageUser()
+    {
+        return view('manageUser');
     }
 }

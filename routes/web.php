@@ -14,9 +14,11 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'App\Http\Controllers\PagesController@home')->name('home');
 
 Route::get('/shope', function () {
     return view('shope');
@@ -26,17 +28,10 @@ Route::get('/daging', function () {
     return view('daging');
 });
 
-Route::get('tukau/administrator', function () {
-    return view('auth/login');
-});
+Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 
-Route::get('tukau/administrator/index', function () {
-    return view('admin');
-});
-
-// Route::get('/tukau/administrator', 'PagesController@adminLogin');
-
-// Route::get('tukau/administrator/index', 'PagesController@adminPage');
+Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');
+Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
 
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
