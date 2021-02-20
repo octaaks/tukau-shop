@@ -31,7 +31,10 @@ Route::get('/daging', function () {
 Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');
+
 Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'App\Http\Controllers\UserController@edit');
+Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', 'App\Http\Controllers\UserController@update');
 Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
 
 // Route::get('/', 'PagesController@home');

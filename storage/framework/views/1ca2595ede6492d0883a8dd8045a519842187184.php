@@ -15,14 +15,23 @@
                     </h3>
                 </div>
                 <div class="card-body">
+                        
+                    <?php if(session('success')): ?>
+                    <div class="alert alert-success" role="alert">
+                        <?php echo e(session('success')); ?>
+
+                    </div>
+                    <?php endif; ?>
+
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Alamat</th>
                                 <th scope="col">No HP</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -33,10 +42,11 @@
                                 <th scope="row"><?php echo e($user->id); ?></th>
                                 <td><?php echo e($user->name); ?></td>
                                 <td><?php echo e($user->email); ?></td>
-                                <td><?php echo e($user->address); ?></td>
                                 <td><?php echo e($user->no_hp); ?></td>
+                                <td><?php echo e($user->address); ?></td>
+                                <td><?php echo e($user->roles->pluck('name')); ?></td>
                                 <td width="20%">
-                                    <a class="btn btn-primary  btn-sm" href="<?php echo e($user->id); ?>/edit/" role="button">Edit</a>
+                                    <a class="btn btn-primary  btn-sm" href="/tukau/administrator/user/<?php echo e($user->id); ?>/edit/" role="button">Edit</a>
                                     <a class="btn btn-danger  btn-sm" method="delete" href="/tukau/administrator/user/<?php echo e($user->id); ?>/delete" role="button">Delete</a>
                                 </td>
                             </tr>
