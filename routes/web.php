@@ -32,6 +32,7 @@ Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPa
 
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');
 Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
 
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');

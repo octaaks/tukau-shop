@@ -23,17 +23,22 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">No HP</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach($users as $user)
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{$user->id}}</th>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>---</td>
-                                <td>---</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->no_hp}}</td>
+                                <td width="20%">
+                                    <a class="btn btn-primary  btn-sm" href="{{$user->id}}/edit/" role="button">Edit</a>
+                                    <a class="btn btn-danger  btn-sm" method="delete" href="/tukau/administrator/user/{{$user->id}}/delete" role="button">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
 

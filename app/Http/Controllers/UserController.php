@@ -80,8 +80,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        
+        if (!$user) {
+            return redirect('/tukau/administrator/user/')->with('error', 'Item with id: $id not found!');
+        }
+        $user->delete($request);
+        return redirect('/tukau/administrator/user/')->with('success', 'Data has been deleted!');
     }
 }

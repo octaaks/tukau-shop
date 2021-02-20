@@ -23,17 +23,22 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">No HP</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row"><?php echo e($user->id); ?></th>
                                 <td><?php echo e($user->name); ?></td>
                                 <td><?php echo e($user->email); ?></td>
-                                <td>---</td>
-                                <td>---</td>
+                                <td><?php echo e($user->address); ?></td>
+                                <td><?php echo e($user->no_hp); ?></td>
+                                <td width="20%">
+                                    <a class="btn btn-primary  btn-sm" href="<?php echo e($user->id); ?>/edit/" role="button">Edit</a>
+                                    <a class="btn btn-danger  btn-sm" method="delete" href="/tukau/administrator/user/<?php echo e($user->id); ?>/delete" role="button">Delete</a>
+                                </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
