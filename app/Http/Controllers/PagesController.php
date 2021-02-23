@@ -38,6 +38,6 @@ class PagesController extends Controller
 
     public function manageProduct()
     {
-        return view('manageProduct');
+        return view('products.manageProduct');
     }
  }

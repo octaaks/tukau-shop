@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\ProductRequest;
+use Illuminate\Http\Request;
 
 use App\Models\Product;
 
@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all();
-        return view('manageProduct', ['products'=> $product]);
+        return view('products.manageProduct', ['products'=> $product]);
     }
 
     /**
@@ -29,8 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('formProduct');
-    
+        return view('products.formProduct');
     }
 
     /**
@@ -39,16 +38,25 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $params = $request->except('_token');
-        $params['slug'] = Str::slug($params['name']);
-        $params['parents_id'] = 0;
+        $request->validate([
+            'name'          => 'required',
+            'price'         => 'required',
+            'weight'        => 'required',
+            'description'   => 'required'
+        ]);
 
-        if (Product::create($params)){
-            Session::flash('success', 'Product has been saved');
-        }
-        return redirect('tukau/administrastor/product');
+        $product = new Product;
+        // dd($user);
+
+        $product -> name           = $request-> name;
+        $product -> price          = $request-> price;
+        $product -> weight         = $request-> weight;
+        $product -> description    = $request-> description;
+        $product->save();
+
+        return redirect('/tukau/administrator/product')->with('success', 'Data saved succesfully!');
     }
 
     /**
@@ -71,6 +79,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect('/tukau/administrator/product')->with('error', 'Product tidak ada!');
+        }
+        return view('products.editProduct', ['product'=> $product]);
     }
 
     /**
@@ -80,9 +94,28 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name'          => 'required',
+            'price'         => 'required',
+            'weight'        => 'required',
+            'description'   => 'required'
+        ]);
+
+        $product = Product::find($id);
+        // dd($user);
+        if (!$product) {
+            return redirect('/tukau/administrator/product')->with('error', 'Product tidak ada!');
+        }
+        $product -> name           = $request-> name;
+        $product -> price          = $request-> price;
+        $product -> weight         = $request-> weight;
+        $product -> description    = $request-> description;
+        $product->save();
+
+        return redirect('/tukau/administrator/product')->with('success', 'Data saved succesfully!');
     }
 
     /**
@@ -91,8 +124,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
+        $product = Product::find($id);
+        
+        if (!$product) {
+            return redirect('/tukau/administrator/product/')->with('error', 'Produk tidak ada!!');
+        }
+        $product->delete($request);
+        return redirect('/tukau/administrator/product/')->with('success', 'Produk telah dihapus!');
     }
 }

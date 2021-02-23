@@ -95,7 +95,6 @@ class UserController extends Controller
         $user -> address        = $request-> address;
         $user->save();
 
-        
         return redirect('/tukau/administrator/user')->with('success', 'Data saved succesfully!');
     }
 
