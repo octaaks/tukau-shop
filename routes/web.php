@@ -31,11 +31,11 @@ Route::get('/daging', function () {
 Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');
-Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
-Route::middleware('role:admin')->get('/tukau/administrator/product', 'App\Http\Controllers\ProductController@index')->name('manageProduct');
 
-Route::middleware('role:admin')->get('/tukau/administrator/product/create', 'App\Http\Controllers\ProductController@create')->name('formProduct');
-Route::resource('/tukau/administrastor/product','ProductController');
+Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'App\Http\Controllers\UserController@edit');
+Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', 'App\Http\Controllers\UserController@update');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
 
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
