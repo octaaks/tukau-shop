@@ -35,4 +35,9 @@ class PagesController extends Controller
     {
         return view('manageUser');
     }
-}
+
+    public function manageProduct()
+    {
+        return view('manageProduct');
+    }
+ }
