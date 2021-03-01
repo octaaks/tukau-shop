@@ -37,6 +37,15 @@ Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'App
 Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', 'App\Http\Controllers\UserController@update');
 Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
 
+//product
+
+Route::middleware('role:admin')->get('/tukau/administrator/product', 'App\Http\Controllers\ProductController@index')->name('manageProduct');
+Route::middleware('role:admin')->get('/tukau/administrator/product/create', 'App\Http\Controllers\ProductController@create');
+Route::middleware('role:admin')->post('/tukau/administrator/product/store', 'App\Http\Controllers\ProductController@store');
+Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/edit', 'App\Http\Controllers\ProductController@edit');
+Route::middleware('role:admin')->post('/tukau/administrator/product/{id}/update', 'App\Http\Controllers\ProductController@update');
+Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/delete', 'App\Http\Controllers\ProductController@destroy');
+
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
 
