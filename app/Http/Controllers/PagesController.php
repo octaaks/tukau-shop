@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class PagesController extends Controller
 {
@@ -39,5 +40,11 @@ class PagesController extends Controller
     public function manageProduct()
     {
         return view('products.manageProduct');
+    }
+
+    public function shop()
+    {
+        $items = Product::all();
+        return view('shope', ['items'=> $items]);
     }
  }

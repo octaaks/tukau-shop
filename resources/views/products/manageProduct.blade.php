@@ -29,8 +29,10 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Category_id</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Weight</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -41,8 +43,10 @@
                                 <tr>
                                     <th scope="row">{{$product->id}}</th>
                                     <td>{{$product->name}}</td>
+                                    <td>{{$product->category_id}}</td>
                                     <td>{{$product->price}}</td>
                                     <td>{{$product->weight}}</td>
+                                    <td>{{$product->image}}</td>
                                     <td>{{$product->description}}</td>
                                     <td width="20%">
                                         <a class="btn btn-primary  btn-sm" href="/tukau/administrator/product/{{$product->id}}/edit/" role="button">Edit</a>

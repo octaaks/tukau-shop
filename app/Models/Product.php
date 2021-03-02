@@ -11,11 +11,15 @@ class Product extends Model
     //
     protected $fillable =[
 
-    'name',
-    'price',
-    'weight',
-    'description'
-
+        'category_id',
+        'name',
+        'price',
+        'weight',
+        
+        'image',
+        'description'
     ];
-    
+
+    protected $nullable = [
+    ];
 }

@@ -20,13 +20,11 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/', 'App\Http\Controllers\PagesController@home')->name('home');
 
-Route::get('/shope', function () {
-    return view('shope');
-});
-
 Route::get('/daging', function () {
     return view('daging');
 });
+
+Route::get('/shope', 'App\Http\Controllers\PagesController@shop');
 
 Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 
