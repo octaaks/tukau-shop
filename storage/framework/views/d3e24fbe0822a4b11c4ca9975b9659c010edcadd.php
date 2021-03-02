@@ -30,8 +30,10 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Category_id</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Weight</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -42,8 +44,10 @@
                                 <tr>
                                     <th scope="row"><?php echo e($product->id); ?></th>
                                     <td><?php echo e($product->name); ?></td>
+                                    <td><?php echo e($product->Categories()->first()->name); ?></td>
                                     <td><?php echo e($product->price); ?></td>
                                     <td><?php echo e($product->weight); ?></td>
+                                    <td><?php echo e($product->image); ?></td>
                                     <td><?php echo e($product->description); ?></td>
                                     <td width="20%">
                                         <a class="btn btn-primary  btn-sm" href="/tukau/administrator/product/<?php echo e($product->id); ?>/edit/" role="button">Edit</a>

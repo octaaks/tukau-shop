@@ -256,7 +256,7 @@ img{
     }
 }
 
-@media screen and (min-width: 1336px){
+@media screen and (min-width: 1366px){
     .product-items{
         grid-template-columns: repeat(4, 1fr);
     }

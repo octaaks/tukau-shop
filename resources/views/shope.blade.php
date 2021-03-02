@@ -15,8 +15,9 @@
             <div class = "container">
                 <h1 class = "lg-title">Special  Offers</h1>
                 
-                @foreach($items as $item)
+               
                 <div class = "product-items">
+                @foreach($items as $item)
                     <!-- single product -->
                     <div class = "product">
                         <div class = "product-content">
@@ -54,10 +55,10 @@
                         </div>
                     </div>
                     <!-- end of single product -->
-                </div>
-                
 	            @endforeach
 
+                </div>
+                
             </div>
         </div>
 

@@ -43,7 +43,7 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->no_hp}}</td>
                                 <td>{{$user->address}}</td>
-                                <td>{{$user->roles->pluck('name')}}</td>
+                                <td>{{$user->Roles()->first()->name}}</td>
                                 <td width="20%">
                                     <a class="btn btn-primary  btn-sm" href="/tukau/administrator/user/{{$user->id}}/edit/" role="button">Edit</a>
                                     <a class="btn btn-danger  btn-sm" method="delete" href="/tukau/administrator/user/{{$user->id}}/delete" role="button">Delete</a>

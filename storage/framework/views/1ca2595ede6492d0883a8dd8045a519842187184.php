@@ -44,7 +44,7 @@
                                 <td><?php echo e($user->email); ?></td>
                                 <td><?php echo e($user->no_hp); ?></td>
                                 <td><?php echo e($user->address); ?></td>
-                                <td><?php echo e($user->roles->pluck('name')); ?></td>
+                                <td><?php echo e($user->Roles()->first()->name); ?></td>
                                 <td width="20%">
                                     <a class="btn btn-primary  btn-sm" href="/tukau/administrator/user/<?php echo e($user->id); ?>/edit/" role="button">Edit</a>
                                     <a class="btn btn-danger  btn-sm" method="delete" href="/tukau/administrator/user/<?php echo e($user->id); ?>/delete" role="button">Delete</a>

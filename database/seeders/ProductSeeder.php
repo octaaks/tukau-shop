@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
             'weight'        => 250,
             'image'         => '-',
             'description'   => 'Mie instan'
-        ]);
+        ])->categories()->attach(1);
         
         Product::create([
             'name'          => 'Sedaap',
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
             'weight'        => 250,
             'image'         => '-',
             'description'   => 'Mie instan'
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name'          => 'Lemonilo',
@@ -40,7 +40,6 @@ class ProductSeeder extends Seeder
             'weight'        => 250,
             'image'         => '-',
             'description'   => 'Mie instan'
-        ]);
-        
+        ])->categories()->attach(1);
     }
 }

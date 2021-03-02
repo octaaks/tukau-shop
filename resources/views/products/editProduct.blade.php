@@ -45,7 +45,7 @@
 
                             <div class="col-md-6">
                                 <input id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror"
-                                    category_id="category_id" value="{{ $product->category_id }}" required autocomplete="category_id" autofocus>
+                                    name="category_id" value="{{ $product->category_id }}" required autocomplete="category_id" autofocus>
 
                                 @error('category_id')
                                 <span class="invalid-feedback" role="alert">

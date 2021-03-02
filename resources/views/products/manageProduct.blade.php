@@ -43,7 +43,7 @@
                                 <tr>
                                     <th scope="row">{{$product->id}}</th>
                                     <td>{{$product->name}}</td>
-                                    <td>{{$product->category_id}}</td>
+                                    <td>{{$product->Categories()->first()->name}}</td>
                                     <td>{{$product->price}}</td>
                                     <td>{{$product->weight}}</td>
                                     <td>{{$product->image}}</td>
