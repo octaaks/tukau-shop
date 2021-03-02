@@ -51,7 +51,7 @@
                         </div>
 
                         <div class = "off-info">
-                            <h2 class = "sm-title">25% off</h2>
+                            <h2 class = "sm-title">21% off</h2>
                         </div>
                     </div>
                     <!-- end of single product -->
