@@ -41,18 +41,22 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'category_id'   => 'required',
             'name'          => 'required',
             'price'         => 'required',
             'weight'        => 'required',
-            'description'   => 'required'
+            'image'         => 'nullable',
+            'description'   => 'nullable'
         ]);
 
         $product = new Product;
         // dd($user);
 
+        $product -> category_id    = $request-> category_id;
         $product -> name           = $request-> name;
         $product -> price          = $request-> price;
         $product -> weight         = $request-> weight;
+        $product -> image          = $request-> image;
         $product -> description    = $request-> description;
         $product->save();
 
@@ -98,10 +102,12 @@ class ProductController extends Controller
     {
         //
         $request->validate([
+            'category_id'   => 'nullable',
             'name'          => 'required',
             'price'         => 'required',
             'weight'        => 'required',
-            'description'   => 'required'
+            'image'         => 'nullable',
+            'description'   => 'nullable'
         ]);
 
         $product = Product::find($id);
@@ -109,9 +115,12 @@ class ProductController extends Controller
         if (!$product) {
             return redirect('/tukau/administrator/product')->with('error', 'Product tidak ada!');
         }
+       
+        $product -> category_id    = $request-> category_id;
         $product -> name           = $request-> name;
         $product -> price          = $request-> price;
         $product -> weight         = $request-> weight;
+        $product -> image          = $request-> image;
         $product -> description    = $request-> description;
         $product->save();
 

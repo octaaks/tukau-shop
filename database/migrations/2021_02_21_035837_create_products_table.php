@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->bigInteger('price');
             $table->bigInteger('weight');
-            $table->bigInteger('image');
+            $table->string('image');
             $table->string('description');
             $table->timestamps();
         });
