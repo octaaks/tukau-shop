@@ -225,6 +225,15 @@
                                 </p>
                             </a>
                         </li>
+                    
+                        <li class="nav-item">
+                            <a href="/tukau/administrator/product" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Kelola Product 
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
