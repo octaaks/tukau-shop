@@ -44,9 +44,21 @@
                             <label for="category_id" class="col-md-4 col-form-label text-md-right">Category</label>
 
                             <div class="col-md-6">
-                                <input id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror"
-                                    name="category_id" value="{{ $product->category_id }}" required autocomplete="category_id" autofocus>
+                                <!-- <input id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror"
+                                    name="category_id" value="{{ $product->category_id }}" required autocomplete="category_id" autofocus> -->
 
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option selected value= "{{ $product->category_id }}">{{$product->Categories()->first()->name}}</option>
+                                    <option value="1">Sayuran</option>
+                                    <option value="2">Ikan dan ternak</option>
+                                    <option value="3">Buah-buahan</option>
+                                    <option value="4">Bumbu dan rempah</option>
+                                    <option value="5">Beras dan biji-bijian</option>
+                                    <option value="6">Makanan beku</option>
+                                    <option value="7">Siap makan</option>
+                                    <option value="8">Groceries</option>
+                                    <option value="9">Siap masak</option>
+                                </select>
                                 @error('category_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -56,8 +68,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="price"
-                                class="col-md-4 col-form-label text-md-right">Price</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="price" class="form-control @error('price') is-invalid @enderror"
@@ -75,8 +86,9 @@
                             <label for="weight" class="col-md-4 col-form-label text-md-right">Weight</label>
 
                             <div class="col-md-6">
-                                <input id="weight" type="text" class="form-control @error('weight') is-invalid @enderror"
-                                    name="weight" value="{{ $product->weight }}" required autocomplete="weight">
+                                <input id="weight" type="text"
+                                    class="form-control @error('weight') is-invalid @enderror" name="weight"
+                                    value="{{ $product->weight }}" required autocomplete="weight">
 
                                 @error('weight')
                                 <span class="invalid-feedback" role="alert">
@@ -90,9 +102,8 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="text"
-                                    class="form-control @error('image') is-invalid @enderror" name="image"
-                                    value="{{ $product->image }}" required autocomplete="image">
+                                <input id="image" type="text" class="form-control @error('image') is-invalid @enderror"
+                                    name="image" value="{{ $product->image }}" required autocomplete="image">
 
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
