@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Product;
 
@@ -102,7 +103,7 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'category_id'   => 'nullable',
+            'category_id'   => 'required',
             'name'          => 'required',
             'price'         => 'required',
             'weight'        => 'required',
@@ -111,6 +112,7 @@ class ProductController extends Controller
         ]);
 
         $product = Product::find($id);
+
         // dd($user);
         if (!$product) {
             return redirect('/tukau/administrator/product')->with('error', 'Product tidak ada!');
@@ -123,6 +125,11 @@ class ProductController extends Controller
         $product -> image          = $request-> image;
         $product -> description    = $request-> description;
         $product->save();
+
+        $productCategory = DB::table('category_product')->where('product_id', $id)
+         ->update([
+             'category_id'=> $request->category_id,
+         ]);
 
         return redirect('/tukau/administrator/product')->with('success', 'Data saved succesfully!');
     }
