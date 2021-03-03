@@ -29,7 +29,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Category_id</th>
+                                    <th scope="col">Kategori</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Weight</th>
                                     <th scope="col">Image</th>

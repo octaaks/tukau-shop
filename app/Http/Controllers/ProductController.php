@@ -60,6 +60,7 @@ class ProductController extends Controller
         $product -> image          = $request-> image;
         $product -> description    = $request-> description;
         $product->save();
+        $product->categories()->attach($request-> category_id);
 
         return redirect('/tukau/administrator/product')->with('success', 'Data saved succesfully!');
     }
