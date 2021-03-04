@@ -9,7 +9,7 @@
 
 <div class="content">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-12">
             <div class="card card-default">
                 <div class="card-header card-header-border=bottom">
                     <h2> {{  $formTitle }} Form Product </h2>
@@ -26,7 +26,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -41,12 +41,20 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-right">Category</label>
+                            <label for="category_id" class="col-md-2 col-form-label text-md-right">Category</label>
 
                             <div class="col-md-6">
-                                <input id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror"
-                                    name="category_id" value="" required autocomplete="category_id" autofocus>
-
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option value="1">Sayuran</option>
+                                    <option value="2">Ikan dan ternak</option>
+                                    <option value="3">Buah-buahan</option>
+                                    <option value="4">Bumbu dan rempah</option>
+                                    <option value="5">Beras dan biji-bijian</option>
+                                    <option value="6">Makanan beku</option>
+                                    <option value="7">Siap makan</option>
+                                    <option value="8">Groceries</option>
+                                    <option value="9">Siap masak</option>
+                                </select>
                                 @error('category_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -57,7 +65,7 @@
 
                         <div class="form-group row">
                             <label for="price"
-                                class="col-md-4 col-form-label text-md-right">Price</label>
+                                class="col-md-2 col-form-label text-md-right">Price</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="text" class="form-control @error('price') is-invalid @enderror"
@@ -72,7 +80,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="weight" class="col-md-4 col-form-label text-md-right">Weight</label>
+                            <label for="weight" class="col-md-2 col-form-label text-md-right">Weight</label>
 
                             <div class="col-md-6">
                                 <input id="weight" type="text" class="form-control @error('weight') is-invalid @enderror"
@@ -87,7 +95,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
+                            <label for="image" class="col-md-2 col-form-label text-md-right">Image</label>
 
                             <div class="col-md-6">
                                 <input id="image" type="text"
@@ -103,7 +111,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                            <label for="description" class="col-md-2 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
                                 <input id="description" type="text"

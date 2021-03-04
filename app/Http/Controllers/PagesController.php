@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class PagesController extends Controller
 {
     public function home()
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', ['categories'=> $categories]);
     }
     
     public function about()
@@ -47,4 +49,4 @@ class PagesController extends Controller
         $items = Product::all();
         return view('shope', ['items'=> $items]);
     }
- }
+}
