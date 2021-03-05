@@ -43,9 +43,8 @@
     </div>
 
     <div class="d-flex flex-wrap">
-        
         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div align="center" class="">
+        <div align="center" class="category-box">
             <div class="feature-box">
                 <a href="/shope/<?php echo e($category->slug); ?>">
                     <img src="img/category/<?php echo e($category->slug); ?>.png">
@@ -54,7 +53,6 @@
             <span ><?php echo e($category->name); ?></span>
         </div>
         <!-- <div class="w-100"></div> -->
-        
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 

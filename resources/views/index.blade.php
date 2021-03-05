@@ -43,9 +43,8 @@
     </div>
 
     <div class="d-flex flex-wrap">
-        
         @foreach($categories as $category)
-        <div align="center" class="">
+        <div align="center" class="category-box">
             <div class="feature-box">
                 <a href="/shope/{{ $category->slug }}">
                     <img src="img/category/{{ $category->slug }}.png">
@@ -54,7 +53,6 @@
             <span >{{ $category->name }}</span>
         </div>
         <!-- <div class="w-100"></div> -->
-        
         @endforeach
     </div>
 

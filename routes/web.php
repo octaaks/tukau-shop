@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,8 @@ Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/delete',
 
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/upload', 'App\Http\Controllers\UploadController@upload');
+Route::post('/upload/proses', 'App\Http\Controllers\UploadController@proses_upload');
+// hapus file
+Route::get('/upload/hapus/{id}', 'App\Http\Controllers\UploadController@hapus');
