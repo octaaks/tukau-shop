@@ -4,7 +4,8 @@
 
 <?php $__env->startSection('container'); ?>
 
-<link rel="stylesheet" href="<?php echo e(asset('css/style1.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+<!-- <link rel="stylesheet" href="<?php echo e(asset('css/style1.css')); ?>"> -->
 
 <!-- font awesome -->
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
@@ -19,12 +20,12 @@
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <!-- single product -->
-                <div class="card  mb-3" style="max-width: 18rem;">
+                <div class="card  mb-3" style="max-width: 11rem;">
                     <div class="card-body">
 
                         <div class="product-content">
                             <div class="product-img">
-                                <img src="img/anggur1.jpg" alt="product image">
+                                <img src="<?php echo e($item->image); ?>" alt="product image">
                             </div>
                         </div>
 
@@ -38,7 +39,7 @@
                                     <span><i class="far fa-star"></i></span>
                                 </div>
                             </div>
-                            <a href="#" class="product-name"><?php echo e($item->name); ?></a>
+                            <a  href="#" class="product-name"><?php echo e($item->name); ?></a>
                             <p class="product-price">Rp. <?php echo e($item->price); ?></p>
                             <!-- <p class="product-price">Rp. <?php echo e($item->price*0.8); ?></p> -->
                         </div>

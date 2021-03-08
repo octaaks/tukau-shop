@@ -63,7 +63,7 @@ class ProductController extends Controller
         $product -> name           = $request-> name;
         $product -> price          = $request-> price;
         $product -> weight         = $request-> weight;
-        $product -> image          = $tujuan_upload.'/'.$nama_file;
+        $product -> image          = "/".$tujuan_upload.'/'.$nama_file;
         $product -> description    = $request-> description;
         $product->save();
         $product->categories()->attach($request-> category_id);
@@ -119,21 +119,31 @@ class ProductController extends Controller
             'description'   => $param['description']
         ];
 
+        $cp = [
+            'product_id'   => $id,
+            'category_id'   => $param['category_id']
+        ];
+
         $file = $request->file('image');
 
         // Kalo pas diedit gambar diganti / masukin gambar
         if ($file) {
             // menyimpan data file yang diupload ke variabel $file
             $nama_file = time()."_".$file->getClientOriginalName();
-            $data['image'] = $nama_file; // Update field photo
 
             // isi dengan nama folder tempat kemana file diupload
             $tujuan_upload = 'data_file';
             $file->move($tujuan_upload, $nama_file);
+            
+            $data['image'] = "/".$tujuan_upload."/".$nama_file; // Update field photo
         }
+
+        $product = Product::find($id);
 
         try {
             DB::table('products') -> where('id', '=', $id) -> update($data);
+            DB::table('category_product') ->where('product_id', '=', $id)-> update($cp);
+                        
             return redirect('/tukau/administrator/product')->with('success', 'Data saved succesfully!');
         } catch (\Exception $e) {
             return redirect('/tukau/administrator/product')->with('error', 'Product tidak ada!');

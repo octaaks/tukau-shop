@@ -23,7 +23,7 @@
                     </div>
                     <?php endif; ?>
 
-                    <form method="POST" action="/tukau/administrator/product/<?php echo e($product->id); ?>/update">
+                    <form method="POST" action="/tukau/administrator/product/<?php echo e($product->id); ?>/update"  enctype="multipart/form-data">
                         <?php echo csrf_field(); ?>
                         <div class="row">
                             <div class="col-md-6">
@@ -64,8 +64,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <div class="col-md-9">
                                         <select name="category_id" id="category_id" class="form-control">
-                                            <option selected value="<?php echo e($product->category_id); ?>">
-                                                <?php echo e($product->Categories()->first()->name); ?></option>
+                                            <!-- <option selected value="<?php echo e($product->category_id); ?>">
+                                                <?php echo e($product->Categories()->first()->name); ?></option> -->
                                             <option value="1">Sayuran</option>
                                             <option value="2">Ikan dan ternak</option>
                                             <option value="3">Buah-buahan</option>
@@ -184,8 +184,9 @@ unset($__errorArgs, $__bag); ?>
 
                             <div class="col-md-6">
                                 <div align="center" class="form-group">
-                                    <b>File Gambar</b><br />
-                                    <input value="<?php echo e($product->image); ?>" type="file" name="image"
+                                <img style="margin-bottom:20px; width:160px; height:160px;" src="<?php echo e($product->image); ?>">
+
+                                <input value="" type="file" name="image"
                                         class="form-control <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

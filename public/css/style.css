@@ -326,7 +326,7 @@ header .site-title {
     height: 300px;
 }
 
-.category-item{
+.category-item {
     align-content: center;
     align-self: center;
     text-align: center;
@@ -334,4 +334,12 @@ header .site-title {
 
 .category-box {
     margin: 0.5rem;
+}
+
+.product-name{
+    word-wrap: break-word;
+}
+
+.card{
+    margin: 10px;
 }

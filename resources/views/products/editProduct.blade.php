@@ -22,7 +22,7 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="/tukau/administrator/product/{{$product->id}}/update">
+                    <form method="POST" action="/tukau/administrator/product/{{$product->id}}/update"  enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -49,8 +49,8 @@
 
                                     <div class="col-md-9">
                                         <select name="category_id" id="category_id" class="form-control">
-                                            <option selected value="{{ $product->category_id }}">
-                                                {{$product->Categories()->first()->name}}</option>
+                                            <!-- <option selected value="{{ $product->category_id }}">
+                                                {{$product->Categories()->first()->name}}</option> -->
                                             <option value="1">Sayuran</option>
                                             <option value="2">Ikan dan ternak</option>
                                             <option value="3">Buah-buahan</option>
@@ -120,8 +120,9 @@
 
                             <div class="col-md-6">
                                 <div align="center" class="form-group">
-                                    <b>File Gambar</b><br />
-                                    <input value="{{ $product->image }}" type="file" name="image"
+                                <img style="margin-bottom:20px; width:160px; height:160px;" src="{{$product->image}}">
+
+                                <input value="" type="file" name="image"
                                         class="form-control @error('image') is-invalid @enderror">
 
                                     @error('image')

@@ -11,17 +11,12 @@ class PagesController extends Controller
     public function home()
     {
         $categories = Category::all();
-        return view('index', ['categories'=> $categories]);
-    }
-    
-    public function about()
-    {
-        return view('about');
-    }
-    
-    public function daging()
-    {
-        return view('daging');
+        // return view('index', ['categories'=> $categories]);
+
+        $products = Product::orderBy('created_at', 'DESC')->get();
+        // return view('index', ['products'=> $products]);
+
+        return view('index', compact('categories', 'products'));
     }
 
     public function loginPage()
@@ -44,9 +39,13 @@ class PagesController extends Controller
         return view('products.manageProduct');
     }
 
-    public function shop()
+    public function shop($slug)
     {
-        $items = Product::all();
-        return view('shope', ['items'=> $items]);
+        if ($slug=='all') {
+            $items = Product::all();
+        } else {
+            $items = Product::where();
+        }
+        return view('shop'.'/'.$slug, ['items'=> $items]);
     }
 }

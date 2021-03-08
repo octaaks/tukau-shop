@@ -43,10 +43,10 @@
     </div>
 
     <div class="d-flex flex-wrap">
-        @foreach($categories as $category)
+        @foreach($categories as $key=>$category)
         <div align="center" class="category-box">
             <div class="feature-box">
-                <a href="/shope/{{ $category->slug }}">
+                <a href="/shop/{{ $category->slug }}">
                     <img src="img/category/{{ $category->slug }}.png">
                 </a>
             </div>
@@ -65,74 +65,51 @@
             <!-- <p>We Provide You New Fasion Design Clothes</p> -->
         </div>
         <!--products----------------------->
-        <div class="product-container">
+        <div class="d-flex flex-wrap">
+                @foreach($products as $key=>$product)
+                <!-- single product -->
+                <div class="card mb-3" style="max-width: 10rem;">
+                    <div class="card-body">
 
-            <!--product-box-1---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                    <a href="#" class="add-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <!--img------>
-                    <img src="img/anggur.jpg">
-                </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">anggur</a>
-                    <span class="p-price">$22.00</span>
-                </div>
-            </div>
-            <!--product-box-2---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                    <!--img------>
-                    <img src="img/anggur1.jpg">
-                </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">anggur</a>
-                    <span class="p-price">$22.00</span>
-                </div>
-            </div>
-            <!--product-box-3---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                    <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                    <!--img------>
-                    <img src="img/anggur.jpg">
-                </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">anggur</a>
-                    <span class="p-price">$22.00</span>
-                </div>
-            </div>
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="{{$product->image}}" alt="product image">
+                            </div>
+                        </div>
 
-            <!--product-box-4---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                    <a href="#" class="add-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <!--img------>
-                    <img src="img/anggur1.jpg">
+                        <div class="product-info">
+                            <div class="product-info-top">
+                                <div class="rating">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="far fa-star"></i></span>
+                                </div>
+                            </div>
+                            <a href="#" class="product-name">{{$product->name}}</a>
+                            <p class="product-price">Rp. {{$product->price}}</p>
+                        </div>
+
+                        <!-- <div class="off-info">
+                            <h2 class="sm-title">21% off</h2>
+                        </div> -->
+                        <div class="product-btns">
+                            <button type="button" class="btn-cart">
+                                <span><i class="fas fa-plus"></i></span>
+                            </button>
+                            <button type="button" class="btn-buy">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+
+                    </div>
                 </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">anggur</a>
-                    <span class="p-price">$22.00</span>
-                </div>
+
+                <!-- end of single product -->
+                @endforeach
+
             </div>
-        </div>
     </section>
     <!-- end of container -->
 </div>
