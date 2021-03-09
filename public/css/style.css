@@ -141,7 +141,7 @@ header .site-title {
 }
 
 .carousel-item {
-    height: 600px;
+    height: 400px;
 }
 
 .category {
@@ -322,17 +322,20 @@ header .site-title {
     vertical-align: middle;
 }
 
-.carousel-item {
-    height: 300px;
-}
-
-.category-item{
+.category-item {
     align-content: center;
     align-self: center;
     text-align: center;
 }
 
 .category-box {
-    width: 50px;
-    height: 50px;
+    margin: 0.5rem;
+}
+
+.product-name{
+    word-wrap: break-word;
+}
+
+.card{
+    margin: 10px;
 }
