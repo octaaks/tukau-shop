@@ -15,7 +15,7 @@
 
     <div class="products">
         <div class="container">
-            <h1 class="lg-title">Special Offers</h1>
+            <h1 class="lg-title">{{$category}}</h1>
 
             <div class="d-flex flex-wrap">
                 @foreach($items as $item)

@@ -7,7 +7,6 @@
 <!-- My CSS -->
 <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 
-
 <div class="container">
     <!-- Content here -->
 
@@ -42,7 +41,7 @@
         <strong>Category</strong>
     </div>
 
-    <div class="d-flex flex-wrap">
+    <div class="d-flex align-content-sm-center flex-wrap">
         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div align="center" class="category-box">
             <div class="feature-box">
@@ -87,7 +86,7 @@
                                     <span><i class="far fa-star"></i></span>
                                 </div>
                             </div>
-                            <a href="#" class="product-name"><?php echo e($product->name); ?></a>
+                            <a href="/product/<?php echo e($product->id); ?>" class="product-name"><?php echo e($product->name); ?></a>
                             <p class="product-price">Rp. <?php echo e($product->price); ?></p>
                         </div>
 

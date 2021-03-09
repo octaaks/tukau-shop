@@ -41,7 +41,9 @@
                     </div>
                 </div>
                 <div class="col-md-4 text-center site-title">
-                    <h2 class="my-md-3 front-title text-white">Tukau</h2>
+                    <a href="/">
+                        <h2 class="my-md-3 front-title text-white">Tukau</h2>
+                    </a>
                 </div>
                 <div class="col-md-4 text-right">
                     <ul class="px-2 navbar-nav ml-auto">
@@ -53,7 +55,7 @@
 
                         </p>
                         <?php if(Route::has('login')): ?>
-                        
+
                         <li class="nav-item">
                             <a class="px-2 nav-link" href="<?php echo e(route('login')); ?>"></a>
                         </li>
@@ -97,8 +99,14 @@
 
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container input-group rounded">
+                    <form class="form-inline" action="/search" method="GET">
+                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -108,7 +116,7 @@
                             <a class="nav-link" href="<?php echo e(url('/')); ?>">HOME<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(url('/shop')); ?>">SHOP</a>
+                            <a class="nav-link" href="<?php echo e(url('/shop/all')); ?>">SHOP</a>
                         </li>
 
                 </div>
@@ -120,16 +128,14 @@
                     <li class="nav-item border rounded-circle mx-2 basket-icon">
                         <i class="fas fa-shopping-basket p-2"></i>
                     </li>
-                </div>
+                </div> -->
 
             </nav>
         </div>
     </header>
 
     <!--end header-->
-
     <?php echo $__env->yieldContent('container'); ?>;
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

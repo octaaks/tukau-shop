@@ -15,7 +15,7 @@
 
     <div class="products">
         <div class="container">
-            <h1 class="lg-title">Special Offers</h1>
+            <h1 class="lg-title"><?php echo e($category); ?></h1>
 
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

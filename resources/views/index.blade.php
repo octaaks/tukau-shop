@@ -7,7 +7,6 @@
 <!-- My CSS -->
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-
 <div class="container">
     <!-- Content here -->
 
@@ -42,7 +41,7 @@
         <strong>Category</strong>
     </div>
 
-    <div class="d-flex flex-wrap">
+    <div class="d-flex align-content-sm-center flex-wrap">
         @foreach($categories as $key=>$category)
         <div align="center" class="category-box">
             <div class="feature-box">

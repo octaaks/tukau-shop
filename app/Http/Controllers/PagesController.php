@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -39,13 +40,30 @@ class PagesController extends Controller
         return view('products.manageProduct');
     }
 
-    public function shop()
+    public function shop($slug)
     {
         if ($slug=='all') {
+            $category = 'Semua Barang';
             $items = Product::all();
+            return view('shop', ['category'=>$category,'items'=>$items]);
         } else {
-            $items = Product::where();
+            $category = Category::where('slug', '=', $slug)->first();
+            $items = Product::whereHas('categories', function (Builder $query) use ($slug) {
+                $query->where('slug', '=', $slug);
+            })->get();
+            // dd($items);
+            return view('shop', ['category'=>$category->name,'items'=>$items]);
         }
-        return view('shop'.'/'.$slug, ['items'=> $items]);
+    }
+    
+    public function search(Request $request)
+    {
+        $cari = $request->search;
+    
+        $products = Product::where('name', 'like', "%".$cari."%")
+        ->paginate();
+    
+        // mengirim data pegawai ke view
+        return view('shop', ['items' => $products, 'category' => $cari]);
     }
 }
