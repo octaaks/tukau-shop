@@ -25,7 +25,7 @@ Route::get('/daging', function () {
     return view('daging');
 });
 
-Route::get('/shop/{slug}', 'App\Http\Controllers\PagesController@shop');
+Route::get('/shop', 'App\Http\Controllers\PagesController@shop');
 
 Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 

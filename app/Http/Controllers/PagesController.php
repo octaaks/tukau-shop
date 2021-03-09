@@ -39,13 +39,14 @@ class PagesController extends Controller
         return view('products.manageProduct');
     }
 
-    public function shop($slug)
+    public function shop()
     {
-        if ($slug=='all') {
-            $items = Product::all();
-        } else {
-            $items = Product::where();
-        }
-        return view('shop'.'/'.$slug, ['items'=> $items]);
+        // if ($slug=='all') {
+        $items = Product::all();
+        // } else {
+        //     $items = Product::where();
+        // }
+        // return view('shop'.'/'.$slug, ['items'=> $items]);
+        return view('shop', ['items'=> $items]);
     }
 }
