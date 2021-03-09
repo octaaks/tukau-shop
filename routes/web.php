@@ -28,6 +28,8 @@ Route::get('/daging', function () {
 
 Route::get('/shop', 'App\Http\Controllers\PagesController@shop');
 
+Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show');
+
 Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
 
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');

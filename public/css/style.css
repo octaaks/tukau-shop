@@ -141,7 +141,7 @@ header .site-title {
 }
 
 .carousel-item {
-    height: 600px;
+    height: 400px;
 }
 
 .category {
@@ -320,10 +320,6 @@ header .site-title {
 
 .front-title {
     vertical-align: middle;
-}
-
-.carousel-item {
-    height: 300px;
 }
 
 .category-item {

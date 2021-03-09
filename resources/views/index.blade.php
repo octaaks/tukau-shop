@@ -87,7 +87,7 @@
                                     <span><i class="far fa-star"></i></span>
                                 </div>
                             </div>
-                            <a href="#" class="product-name">{{$product->name}}</a>
+                            <a href="/product/{{$product->id}}" class="product-name">{{$product->name}}</a>
                             <p class="product-price">Rp. {{$product->price}}</p>
                         </div>
 
