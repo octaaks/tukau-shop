@@ -37,7 +37,7 @@
                 <input type="submit" value="Login">
             </div>
             <div class="signup-link">
-                Not a member? <a href="{{ url('/register') }}">Signup now</a></div>
+                Not a member? <a href="{{ url('/register') }}">Register</a></div>
         </form>
     </div>
 </div>
