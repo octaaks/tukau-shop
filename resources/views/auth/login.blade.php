@@ -4,6 +4,7 @@
 
 @section('container')  
 
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -61,7 +62,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <div  class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif

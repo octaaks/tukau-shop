@@ -59,7 +59,7 @@ unset($__errorArgs, $__bag); ?>
                             <label for="category_id" class="col-md-4 col-form-label text-md-right">Category</label>
 
                             <div class="col-md-6">
-                                <input id="category_id" type="text" class="form-control <?php $__errorArgs = ['category_id'];
+                                <!-- <input id="category_id" type="text" class="form-control <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -67,8 +67,20 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                    category_id="category_id" value="<?php echo e($product->category_id); ?>" required autocomplete="category_id" autofocus>
+                                    name="category_id" value="<?php echo e($product->category_id); ?>" required autocomplete="category_id" autofocus> -->
 
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option selected value= "<?php echo e($product->category_id); ?>"><?php echo e($product->Categories()->first()->name); ?></option>
+                                    <option value="1">Sayuran</option>
+                                    <option value="2">Ikan dan ternak</option>
+                                    <option value="3">Buah-buahan</option>
+                                    <option value="4">Bumbu dan rempah</option>
+                                    <option value="5">Beras dan biji-bijian</option>
+                                    <option value="6">Makanan beku</option>
+                                    <option value="7">Siap makan</option>
+                                    <option value="8">Groceries</option>
+                                    <option value="9">Siap masak</option>
+                                </select>
                                 <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -85,8 +97,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group row">
-                            <label for="price"
-                                class="col-md-4 col-form-label text-md-right">Price</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="price" class="form-control <?php $__errorArgs = ['price'];
@@ -118,15 +129,16 @@ unset($__errorArgs, $__bag); ?>
                             <label for="weight" class="col-md-4 col-form-label text-md-right">Weight</label>
 
                             <div class="col-md-6">
-                                <input id="weight" type="text" class="form-control <?php $__errorArgs = ['weight'];
+                                <input id="weight" type="text"
+                                    class="form-control <?php $__errorArgs = ['weight'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                                    name="weight" value="<?php echo e($product->weight); ?>" required autocomplete="weight">
+unset($__errorArgs, $__bag); ?>" name="weight"
+                                    value="<?php echo e($product->weight); ?>" required autocomplete="weight">
 
                                 <?php $__errorArgs = ['weight'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -147,16 +159,15 @@ unset($__errorArgs, $__bag); ?>
                             <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="text"
-                                    class="form-control <?php $__errorArgs = ['image'];
+                                <input id="image" type="text" class="form-control <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="image"
-                                    value="<?php echo e($product->image); ?>" required autocomplete="image">
+unset($__errorArgs, $__bag); ?>"
+                                    name="image" value="<?php echo e($product->image); ?>" required autocomplete="image">
 
                                 <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

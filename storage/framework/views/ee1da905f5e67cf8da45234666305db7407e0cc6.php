@@ -4,6 +4,7 @@
 
 <?php $__env->startSection('container'); ?>  
 
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -91,7 +92,7 @@ unset($__errorArgs, $__bag); ?>
                                 </button>
 
                                 <?php if(Route::has('password.request')): ?>
-                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
+                                    <div  class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
                                         <?php echo e(__('Forgot Your Password?')); ?>
 
                                     </a>
