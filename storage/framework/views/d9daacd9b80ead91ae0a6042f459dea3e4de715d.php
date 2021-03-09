@@ -108,7 +108,7 @@
                             <a class="nav-link" href="<?php echo e(url('/')); ?>">HOME<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(url('/shope')); ?>">SHOP</a>
+                            <a class="nav-link" href="<?php echo e(url('/shop')); ?>">SHOP</a>
                         </li>
 
                 </div>

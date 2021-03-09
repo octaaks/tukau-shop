@@ -41,12 +41,11 @@ class PagesController extends Controller
 
     public function shop()
     {
-        // if ($slug=='all') {
-        $items = Product::all();
-        // } else {
-        //     $items = Product::where();
-        // }
-        // return view('shop'.'/'.$slug, ['items'=> $items]);
-        return view('shop', ['items'=> $items]);
+        if ($slug=='all') {
+            $items = Product::all();
+        } else {
+            $items = Product::where();
+        }
+        return view('shop'.'/'.$slug, ['items'=> $items]);
     }
 }
