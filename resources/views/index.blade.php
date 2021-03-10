@@ -42,6 +42,16 @@
     </div>
 
     <div class="d-flex align-content-sm-center flex-wrap">
+
+        <div align="center" class="category-box">
+            <div class="feature-box">
+                <a href="/shop/all">
+                    <img src="img/category/cart.png">
+                </a>
+            </div>
+            <span>Semua Produk</span>
+        </div>
+
         @foreach($categories as $key=>$category)
         <div align="center" class="category-box">
             <div class="feature-box">
@@ -49,7 +59,7 @@
                     <img src="img/category/{{ $category->slug }}.png">
                 </a>
             </div>
-            <span >{{ $category->name }}</span>
+            <span>{{ $category->name }}</span>
         </div>
         <!-- <div class="w-100"></div> -->
         @endforeach
@@ -65,50 +75,52 @@
         </div>
         <!--products----------------------->
         <div class="d-flex flex-wrap">
-                @foreach($products as $key=>$product)
-                <!-- single product -->
-                <div class="card mb-3" style="max-width: 10rem;">
-                    <div class="card-body">
+            @foreach($products as $key=>$product)
+                @if( $loop->first or $loop->iteration  <= 6 )
+            <!-- single product -->
+            <div class="card mb-3" style="max-width: 10rem;">
+                <div class="card-body">
 
-                        <div class="product-content">
-                            <div class="product-img">
-                                <img src="{{$product->image}}" alt="product image">
+                    <div class="product-content">
+                        <div class="product-img">
+                            <img src="{{$product->image}}" alt="product image">
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-info-top">
+                            <div class="rating">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="far fa-star"></i></span>
                             </div>
                         </div>
+                        <a href="/product/{{$product->id}}" class="product-name">{{$product->name}}</a>
+                        <p class="product-price">Rp. {{$product->price}}</p>
+                    </div>
 
-                        <div class="product-info">
-                            <div class="product-info-top">
-                                <div class="rating">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
-                            </div>
-                            <a href="/product/{{$product->id}}" class="product-name">{{$product->name}}</a>
-                            <p class="product-price">Rp. {{$product->price}}</p>
-                        </div>
-
-                        <!-- <div class="off-info">
+                    <!-- <div class="off-info">
                             <h2 class="sm-title">21% off</h2>
                         </div> -->
-                        <div class="product-btns">
-                            <button type="button" class="btn-cart">
-                                <span><i class="fas fa-plus"></i></span>
-                            </button>
-                            <button type="button" class="btn-buy">
-                                <span><i class="fas fa-shopping-cart"></i></span>
-                            </button>
-                        </div>
-
+                    <div class="product-btns">
+                        <button type="button" class="btn-cart">
+                            <span><i class="fas fa-plus"></i></span>
+                        </button>
+                        <button type="button" class="btn-buy">
+                            <span><i class="fas fa-shopping-cart"></i></span>
+                        </button>
                     </div>
+
                 </div>
-
-                <!-- end of single product -->
-                @endforeach
-
             </div>
+
+                @endif
+            <!-- end of single product -->
+            @endforeach
+
+        </div>
     </section>
     <!-- end of container -->
 </div>

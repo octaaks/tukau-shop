@@ -15,14 +15,15 @@
 
     <div class="products">
         <div class="container">
-            <h1 class="lg-title">{{$category}}</h1>
+        <a  href="/">Tukau Home</a> > {{$category}}
+
+            <h2>{{$category}}</h2>
 
             <div class="d-flex flex-wrap">
                 @foreach($items as $item)
                 <!-- single product -->
                 <div class="card  mb-3" style="max-width: 11rem;">
                     <div class="card-body">
-
                         <div class="product-content">
                             <div class="product-img">
                                 <img src="{{$item->image}}" alt="product image">

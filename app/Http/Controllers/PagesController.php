@@ -64,6 +64,6 @@ class PagesController extends Controller
         ->paginate();
     
         // mengirim data pegawai ke view
-        return view('shop', ['items' => $products, 'category' => $cari]);
+        return view('shop', ['items' => $products, 'category' => 'Hasil pencarian untuk "'.$cari.'"']);
     }
 }

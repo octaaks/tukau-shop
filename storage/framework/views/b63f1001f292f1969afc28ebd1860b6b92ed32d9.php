@@ -15,14 +15,16 @@
 
     <div class="products">
         <div class="container">
-            <h1 class="lg-title"><?php echo e($category); ?></h1>
+        <a  href="/">Tukau Home</a> > <?php echo e($category); ?>
+
+
+            <h2><?php echo e($category); ?></h2>
 
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <!-- single product -->
                 <div class="card  mb-3" style="max-width: 11rem;">
                     <div class="card-body">
-
                         <div class="product-content">
                             <div class="product-img">
                                 <img src="<?php echo e($item->image); ?>" alt="product image">
