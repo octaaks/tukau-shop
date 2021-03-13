@@ -89,6 +89,8 @@
                                 </form>
                             </div>
                         </li>
+                        
+                        @endguest
                     </ul>
                 </div>
             </div>
@@ -102,7 +104,6 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
-                        @endguest
 
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
