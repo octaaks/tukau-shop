@@ -105,10 +105,10 @@
                             <h2 class="sm-title">21% off</h2>
                         </div> -->
                     <div class="product-btns">
-                        <button type="button" class="btn-cart">
+                        <button onclick="location.href='add-to-cart/{{$product->id}}'" type="button" class="btn-cart">
                             <span><i class="fas fa-plus"></i></span>
                         </button>
-                        <button type="button" class="btn-buy">
+                        <button onclick="location.href='http://www.example.com'" type="button" class="btn-buy">
                             <span><i class="fas fa-shopping-cart"></i></span>
                         </button>
                     </div>
