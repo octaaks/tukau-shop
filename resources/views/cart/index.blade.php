@@ -23,7 +23,7 @@
                         <td>{{$item->name}}</td>
                         <td>Rp. {{$item->price}}</td>
                         <td>Rp. {{Cart::session(auth()->id())->get($item->id)->getPriceSum()}}</td>
-                        <td width="15%">
+                        <td width="30%">
                             <form method="POST" action="/cart/update/{{$item->id}}">
                                 @csrf
                                 <div class="d-flex">

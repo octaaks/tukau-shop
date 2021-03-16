@@ -31,22 +31,41 @@
 
     <!--header-->
     <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="/cart" class="btn border my-md-4 my-2 text-white">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span class="badge badge-danger navbar-badge">
-                            {{Cart::session(auth()->id())->getContent()->count()}}
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center site-title">
-                    <a href="/">
-                        <h2 class="my-md-3 front-title text-white">Tukau</h2>
-                    </a>
-                </div>
-                <div class="col-md-4 text-right">
+        <nav class="navbar navbar-expand-lg navbar " style="background-color:rgb(0, 179, 60)">
+            <a class="navbar-brand" href="/">Tukau</a>
+
+            <a href="/cart" class="btn border">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="badge badge-danger navbar-badge">
+                    {{Cart::session(auth()->id())->getContent()->count()}}
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Kategori
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+                <div class="text-right">
                     <ul class="px-2 navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -95,48 +114,14 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid p-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <div class="container input-group rounded">
-                    <form class="form-inline" action="/search" method="GET">
-                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/') }}">HOME<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/shop/all') }}">SHOP</a>
-                        </li>
-
-                </div>
-
-                <div class="navbar-nav">
-                    <li class="nav-item border rounded-circle mx-2 search-icon">
-                        <i class="fas fa-search p-2"></i>
-                    </li>
-                    <li class="nav-item border rounded-circle mx-2 basket-icon">
-                        <i class="fas fa-shopping-basket p-2"></i>
-                    </li>
-                </div> -->
-
-            </nav>
-        </div>
+        </nav>
     </header>
 
     <!--end header-->
-    @yield('container');
+    <div class="container mt-3">
+        @yield('container')
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

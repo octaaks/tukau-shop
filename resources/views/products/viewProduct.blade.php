@@ -60,7 +60,8 @@
                     <i class="fa fa-star-o"></i>
                 </div>
                 <p>Rp. {{ $r->price }}</p>
-                <a href="" class="btn ">Add to chart</a>
+
+                <div class="btn btn">Add to chart</div>
         </div>
         @endif
         @endforeach
