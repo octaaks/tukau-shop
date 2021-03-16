@@ -20,6 +20,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo e(asset('/css/style.css')); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
 
     <title> <?php echo $__env->yieldContent('title'); ?></title>
 
@@ -32,13 +34,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="btn-group">
-                        <button class="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">IDR</button>
-                        <div class="dropdown-menu">
-                            <a href="" class="dropdown-item">USD</a>
-                        </div>
-                    </div>
+                    <a href="/cart" class="btn border my-md-4 my-2 text-white">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="badge badge-danger navbar-badge">
+                            <?php echo e(Cart::session(auth()->id())->getContent()->count()); ?>
+
+                        </span>
+                    </a>
                 </div>
                 <div class="col-md-4 text-center site-title">
                     <a href="/">
@@ -91,7 +93,7 @@
                                 </form>
                             </div>
                         </li>
-                        
+
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -102,7 +104,8 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <div class="container input-group rounded">
                     <form class="form-inline" action="/search" method="GET">
-                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search"
+                            aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>

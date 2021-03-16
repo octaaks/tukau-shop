@@ -12,6 +12,10 @@ use Session;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -80,7 +84,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('products.viewProduct', ['product'=> $product]);
+        $category = $product->category_id;
+
+        $related = Product::where('category_id','=',$category)->get();
+        return view('products.viewProduct', ['product'=> $product, 'related'=> $related, ]);
     }
 
     /**

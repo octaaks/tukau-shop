@@ -40,7 +40,7 @@
                                     <span><i class="far fa-star"></i></span>
                                 </div>
                             </div>
-                            <a  href="#" class="product-name">{{$item->name}}</a>
+                            <a  href="/product/{{$item->id}}" class="product-name">{{$item->name}}</a>
                             <p class="product-price">Rp. {{$item->price}}</p>
                             <!-- <p class="product-price">Rp. {{$item->price*0.8}}</p> -->
                         </div>

@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers\PagesController;
-// use App\Http\Controllers\UploadController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,42 +17,43 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', 'App\Http\Controllers\PagesController@home')->name('home');
+Route::get('/', 'PagesController@home')->name('home');
 
-Route::get('/daging', function () {
-    return view('daging');
-});
+Route::get('/shop/{slug}', 'PagesController@shop');
+Route::get('/add-to-cart/{product}', 'CartController@add')->middleware('auth');
+Route::get('/cart', 'CartController@index')->middleware('auth');
+Route::post('/cart/update/{id}', 'CartController@update')->middleware('auth');
+Route::get('/cart/destroy/{id}', 'CartController@destroy')->middleware('auth');
 
-Route::get('/shop/{slug}', 'App\Http\Controllers\PagesController@shop');
 
-Route::get('/product/{id}', 'App\Http\Controllers\ProductController@show');
-Route::get('/search', 'App\Http\Controllers\PagesController@search');
+Route::get('/product/{id}', 'ProductController@show');
+Route::get('/search', 'PagesController@search');
 
-Route::get('/tukau/administrator', 'App\Http\Controllers\PagesController@loginPage');
+Route::get('/tukau/administrator', 'PagesController@loginPage');
 
-Route::middleware('role:admin')->get('/tukau/administrator/index', 'App\Http\Controllers\PagesController@dashboard')->name('dashboard');
+Route::middleware('role:admin')->get('/tukau/administrator/index', 'PagesController@dashboard')->name('dashboard');
 
-Route::middleware('role:admin')->get('/tukau/administrator/user', 'App\Http\Controllers\UserController@index')->name('manageUser');
-Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'App\Http\Controllers\UserController@edit');
-Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', 'App\Http\Controllers\UserController@update');
-Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
+Route::middleware('role:admin')->get('/tukau/administrator/user', 'UserController@index')->name('manageUser');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'UserController@edit');
+Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', 'UserController@update');
+Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'UserController@destroy');
 
 //product
 
-Route::middleware('role:admin')->get('/tukau/administrator/product', 'App\Http\Controllers\ProductController@index')->name('manageProduct');
-Route::middleware('role:admin')->get('/tukau/administrator/product/create', 'App\Http\Controllers\ProductController@create');
-Route::middleware('role:admin')->post('/tukau/administrator/product/store', 'App\Http\Controllers\ProductController@store');
-Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/edit', 'App\Http\Controllers\ProductController@edit');
-Route::middleware('role:admin')->post('/tukau/administrator/product/{id}/update', 'App\Http\Controllers\ProductController@update');
-Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/delete', 'App\Http\Controllers\ProductController@destroy');
+Route::middleware('role:admin')->get('/tukau/administrator/product', 'ProductController@index')->name('manageProduct');
+Route::middleware('role:admin')->get('/tukau/administrator/product/create', 'ProductController@create');
+Route::middleware('role:admin')->post('/tukau/administrator/product/store', 'ProductController@store');
+Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/edit', 'ProductController@edit');
+Route::middleware('role:admin')->post('/tukau/administrator/product/{id}/update', 'ProductController@update');
+Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/delete', 'ProductController@destroy');
 
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/upload', 'App\Http\Controllers\UploadController@upload');
-Route::post('/upload/proses', 'App\Http\Controllers\UploadController@proses_upload');
+Route::get('/upload', 'UploadController@upload');
+Route::post('/upload/proses', 'UploadController@proses_upload');
 // hapus file
-Route::get('/upload/hapus/{id}', 'App\Http\Controllers\UploadController@hapus');
+Route::get('/upload/hapus/{id}', 'UploadController@hapus');
