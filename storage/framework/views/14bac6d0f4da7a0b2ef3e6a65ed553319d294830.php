@@ -7,23 +7,22 @@
 <!-- My CSS -->
 <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 
-<div class="container">
     <!-- Content here -->
 
     <!-- caraousel  -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="carousel/buah.jpg" alt="First slide">
+                <img class="d-block w-100" src="carousel/groceries.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="carousel/sayur.jpg" alt="Second slide">
+                <img class="d-block w-100" src="carousel/daging.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="carousel/daging.jpg" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="carousel/groceries.jpg" alt="Third slide">
+                <img class="d-block w-100" src="carousel/groceries.jpg" alt="Four slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -76,57 +75,57 @@
         <!--products----------------------->
         <div class="d-flex flex-wrap">
             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if( $loop->first or $loop->iteration  <= 6 ): ?>
-            <!-- single product -->
-            <div class="card mb-3" style="max-width: 10rem;">
-                <div class="card-body">
+            <?php if( $loop->first or $loop->iteration <= 6 ): ?> <!-- single product -->
+                <div class="card mb-3" style="max-width: 10rem;">
+                    <div class="card-body">
 
-                    <div class="product-content">
-                        <div class="product-img">
-                            <img src="<?php echo e($product->image); ?>" alt="product image">
-                        </div>
-                    </div>
-
-                    <div class="product-info">
-                        <div class="product-info-top">
-                            <div class="rating">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="<?php echo e($product->image); ?>" alt="product image">
                             </div>
                         </div>
-                        <a href="/product/<?php echo e($product->id); ?>" class="product-name"><?php echo e($product->name); ?></a>
-                        <p class="product-price">Rp. <?php echo e($product->price); ?></p>
-                    </div>
 
-                    <!-- <div class="off-info">
+                        <div class="product-info">
+                            <div class="product-info-top">
+                                <div class="rating">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="far fa-star"></i></span>
+                                </div>
+                            </div>
+                            <a href="/product/<?php echo e($product->id); ?>" class="product-name"><?php echo e($product->name); ?></a>
+                            <p class="product-price">Rp. <?php echo e($product->price); ?></p>
+                        </div>
+
+                        <!-- <div class="off-info">
                             <h2 class="sm-title">21% off</h2>
                         </div> -->
-                    <div class="product-btns">
-                        <button onclick="location.href='add-to-cart/<?php echo e($product->id); ?>'" type="button" class="btn-cart">
-                            <span><i class="fas fa-plus"></i></span>
-                        </button>
-                        <button onclick="location.href='http://www.example.com'" type="button" class="btn-buy">
-                            <span><i class="fas fa-shopping-cart"></i></span>
-                        </button>
-                    </div>
+                        <div class="product-btns">
+                            <button onclick="location.href='add-to-cart/<?php echo e($product->id); ?>'" type="button"
+                                class="btn-cart">
+                                <span><i class="fas fa-plus"></i></span>
+                            </button>
+                            <button onclick="location.href='http://www.example.com'" type="button" class="btn-buy">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
 
                 <?php endif; ?>
-            <!-- end of single product -->
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <!-- end of single product -->
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
     </section>
     <!-- end of container -->
-</div>
 
 
 
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts/main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\tukau\resources\views/index.blade.php ENDPATH**/ ?>

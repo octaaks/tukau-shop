@@ -41,7 +41,7 @@
                                     <span><i class="far fa-star"></i></span>
                                 </div>
                             </div>
-                            <a  href="#" class="product-name"><?php echo e($item->name); ?></a>
+                            <a  href="/product/<?php echo e($item->id); ?>" class="product-name"><?php echo e($item->name); ?></a>
                             <p class="product-price">Rp. <?php echo e($item->price); ?></p>
                             <!-- <p class="product-price">Rp. <?php echo e($item->price*0.8); ?></p> -->
                         </div>
