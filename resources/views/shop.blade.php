@@ -15,62 +15,41 @@
 
     <div class="products">
         <div class="container">
-        <a  href="/">Tukau Home</a> > {{$category}}
-
+            <a href="/">Tukau Home</a> > {{$category}}
             <h2>{{$category}}</h2>
-
             <div class="d-flex flex-wrap">
-                @foreach($items as $item)
-                <!-- single product -->
-                <div class="card  mb-3" style="max-width: 11rem;">
+                @foreach($items as $product)
+
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
                     <div class="card-body">
-                        <div class="product-content">
-                            <div class="product-img">
-                                <img src="{{$item->image}}" alt="product image">
+                        <div class="product-info-top">
+                            <div class="rating">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="far fa-star"></i></span>
                             </div>
                         </div>
 
-                        <div class="product-info">
-                            <div class="product-info-top">
-                                <div class="rating">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="far fa-star"></i></span>
-                                </div>
+                        <a href="/product/{{$product->id}}" class="product-name">
+                            <h6 style="white-space: nowrap; overflow: hidden;" class="card-title">{{$product->name}}
+                            </h6>
+                        </a>
+                        <p class="product-price">Rp. {{$product->price}}</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href='add-to-cart/{{$product->id}}' class="btn btn-success buy-btn">BELI</a>
                             </div>
-                            <a  href="/product/{{$item->id}}" class="product-name">{{$item->name}}</a>
-                            <p class="product-price">Rp. {{$item->price}}</p>
-                            <!-- <p class="product-price">Rp. {{$item->price*0.8}}</p> -->
                         </div>
-
-                        <!-- <div class="off-info">
-                            <h2 class="sm-title">21% off</h2>
-                        </div> -->
-                        <div class="product-btns">
-                            <button type="button" class="btn-cart">
-                                <span><i class="fas fa-plus"></i></span>
-                            </button>
-                            <button type="button" class="btn-buy">
-                                <span><i class="fas fa-shopping-cart"></i></span>
-                            </button>
-                        </div>
-
                     </div>
                 </div>
-
-                <!-- end of single product -->
+                
                 @endforeach
-
             </div>
-
         </div>
     </div>
-
-
-
 </body>
-
 </html>
 @endsection

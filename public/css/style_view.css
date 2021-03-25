@@ -35,7 +35,7 @@ body{
     line-height: 60px;
     margin: 25px 0;
 }
-.btn{
+.btn-buy{
     display: inline-block;
     background: #037713;
     color: #fff;
@@ -44,7 +44,7 @@ body{
     border-radius: 30px;
     transition: background 0.5s;
 }
-.btn:hover{
+.btn-buy:hover{
     background: #563434;
 }
 .header{
@@ -262,13 +262,6 @@ input:focus{
     flex-basis: 24%;
     cursor: pointer;
 }
-
-
-
-
-
-
-
 
 /* media query for less than 600 screen size */
 

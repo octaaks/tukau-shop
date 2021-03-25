@@ -23,7 +23,7 @@
                         <td><?php echo e($item->name); ?></td>
                         <td>Rp. <?php echo e($item->price); ?></td>
                         <td>Rp. <?php echo e(Cart::session(auth()->id())->get($item->id)->getPriceSum()); ?></td>
-                        <td width="15%">
+                        <td width="30%">
                             <form method="POST" action="/cart/update/<?php echo e($item->id); ?>">
                                 <?php echo csrf_field(); ?>
                                 <div class="d-flex">
@@ -53,7 +53,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <a class="btn btn-primary" method="delete" href="/cart/destroy/<?php echo e($item->id); ?>"
+                        <a class="btn btn-primary" method="delete" href="#"
                             role="button">Bayar</a>
                     </div>
                 </div>

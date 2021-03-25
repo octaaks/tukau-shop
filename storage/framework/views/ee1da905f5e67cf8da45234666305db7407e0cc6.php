@@ -1,4 +1,6 @@
 
+<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('container'); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('/css/style3.css')); ?>">
 
@@ -144,4 +146,7 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 </div> -->
-<?php /**PATH C:\xampp\htdocs\project-tukau\resources\views/auth/login.blade.php ENDPATH**/ ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts/main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project-tukau\resources\views/auth/login.blade.php ENDPATH**/ ?>

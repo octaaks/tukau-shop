@@ -53,7 +53,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <a class="btn btn-primary" method="delete" href="/cart/destroy/{{$item->id}}"
+                        <a class="btn btn-primary" method="delete" href="#"
                             role="button">Bayar</a>
                     </div>
                 </div>

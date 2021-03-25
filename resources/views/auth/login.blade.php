@@ -1,4 +1,6 @@
-
+@extends('layouts/main')
+@section('title', 'Home')
+@section('container')
 
 <link rel="stylesheet" href="{{asset('/css/style3.css')}}">
 
@@ -113,3 +115,5 @@
         </div>
     </div>
 </div> -->
+
+@endsection

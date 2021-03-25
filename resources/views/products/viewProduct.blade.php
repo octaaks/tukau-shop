@@ -29,7 +29,7 @@
                 <h3>{{ $product->weight }}g</h3>
 
                 <input type="number" value="1">
-                <a href="" class="btn">Add to chart</a>
+                <a href="" class="btn-buy">Add to chart</a>
                 <h3>Deskripsi</h3>
                 <br>
                 <p> {{ $product->description }}</p>
