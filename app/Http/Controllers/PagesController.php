@@ -49,14 +49,16 @@ class PagesController extends Controller
         if ($slug=='all') {
             $category = 'Semua Barang';
             $items = Product::all();
-            return view('shop', ['category'=>$category,'items'=>$items]);
+            $categories = Category::all();
+            return view('shop', ['categories'=>$categories,'category'=>$category,'items'=>$items]);
         } else {
             $category = Category::where('slug', '=', $slug)->first();
             $items = Product::whereHas('categories', function (Builder $query) use ($slug) {
                 $query->where('slug', '=', $slug);
             })->get();
             // dd($items);
-            return view('shop', ['category'=>$category->name,'items'=>$items]);
+            $categories = Category::all();
+            return view('shop', ['categories'=>$categories, 'category'=>$category->name,'items'=>$items]);
         }
     }
     

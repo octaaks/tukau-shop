@@ -45,6 +45,7 @@ header .site-title {
 .container .dropdown-toggle,
 .container .dropdown-item {
     font-size: 12px;
+    text-align: left;   
 }
 
 .header-links a {

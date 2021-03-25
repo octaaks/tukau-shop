@@ -57,13 +57,15 @@
                         <li class="nav-item dropdown">
 
                             @auth
+                            
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <b style="color: #FFFFFF;">Kategori</b>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                @foreach($categories as $key=>$category)
+                                <a class="dropdown-item" href="/shop/{{ $category->slug }}">{{ $category->name }}</a>
+                                @endforeach
                             </div>
 
                             @endauth
@@ -143,7 +145,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
 </body>
 
 </html>
