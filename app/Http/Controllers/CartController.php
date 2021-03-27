@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -30,8 +31,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $items = \Cart::session(auth()->id())->getContent();
-        return view('cart.index', compact('items'));
+        return view('cart.index', compact('categories', 'items'));
     }
 
     /**
@@ -90,7 +92,7 @@ class CartController extends Controller
 
         return back();
     }
-
+    
     public function update($id)
     {
         \Cart::session(auth()->id())->update($id, array(
@@ -101,5 +103,12 @@ class CartController extends Controller
           ));
 
         return back();
+    }
+    
+    public function checkout()
+    {
+        $categories = Category::all();
+        
+        return view('cart.checkout', compact('categories'));
     }
 }

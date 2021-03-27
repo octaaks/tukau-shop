@@ -86,7 +86,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $category = $product->category_id;
 
-        $related = Product::where('category_id','=',$category)->get();
+        $related = Product::where('category_id', '=', $category)->get();
         return view('products.viewProduct', ['product'=> $product, 'related'=> $related, ]);
     }
 

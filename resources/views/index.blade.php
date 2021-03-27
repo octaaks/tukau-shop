@@ -51,7 +51,7 @@
         <span>Semua Produk</span>
     </div>
 
-    @foreach($categories as $key=>$category)
+    @foreach($categories as $category)
     <div align="center" class="category-box">
         <div class="feature-box">
             <a href="/shop/{{ $category->slug }}">
@@ -75,7 +75,7 @@
     <!--products----------------------->
     <div class="d-flex flex-wrap">
 
-        @foreach($products as $key=>$product)
+        @foreach($products as $product)
             @if( $loop->first or $loop->iteration <= 6 ) 
         
                 <div class="card" style="width: 10rem;">

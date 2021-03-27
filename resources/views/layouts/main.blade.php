@@ -35,15 +35,17 @@
                 <a class="my-md-3 site-title text-white" style="margin-right:25px" href="/">
                     <h3>Tukau</h3>
                 </a>
-
-                @auth
+                
                 <a href="/cart" class="btn border">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
-                        {{Cart::session(auth()->id())->getContent()->count()}}
+                        @auth
+                            {{Cart::session(auth()->id())->getContent()->count()}}
+                        @else
+                            0
+                        @endauth
                     </span>
                 </a>
-                @endauth
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -57,7 +59,7 @@
                         <li class="nav-item dropdown">
 
                             @auth
-                            
+
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <b style="color: #FFFFFF;">Kategori</b>
@@ -85,8 +87,8 @@
                             <!-- Authentication Links -->
                             @guest
                             <p class="my-md-4 header-links">
-                                <a href="/tukau/administrator/" class="px-2"> Sign In</a>
-                                <a href="/register" class="px-2"> Create Account </a>
+                                <a href="/login/" class="px-2"> Sign In</a>
+                                <a href="/register/" class="px-2"> Create Account </a>
 
                             </p>
                             @if (Route::has('login'))

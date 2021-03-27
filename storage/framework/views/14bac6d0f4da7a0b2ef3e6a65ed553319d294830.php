@@ -51,7 +51,7 @@
         <span>Semua Produk</span>
     </div>
 
-    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div align="center" class="category-box">
         <div class="feature-box">
             <a href="/shop/<?php echo e($category->slug); ?>">
@@ -75,7 +75,7 @@
     <!--products----------------------->
     <div class="d-flex flex-wrap">
 
-        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if( $loop->first or $loop->iteration <= 6 ): ?> 
         
                 <div class="card" style="width: 10rem;">

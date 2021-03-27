@@ -35,16 +35,18 @@
                 <a class="my-md-3 site-title text-white" style="margin-right:25px" href="/">
                     <h3>Tukau</h3>
                 </a>
-
-                <?php if(auth()->guard()->check()): ?>
+                
                 <a href="/cart" class="btn border">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
-                        <?php echo e(Cart::session(auth()->id())->getContent()->count()); ?>
+                        <?php if(auth()->guard()->check()): ?>
+                            <?php echo e(Cart::session(auth()->id())->getContent()->count()); ?>
 
+                        <?php else: ?>
+                            0
+                        <?php endif; ?>
                     </span>
                 </a>
-                <?php endif; ?>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -58,7 +60,7 @@
                         <li class="nav-item dropdown">
 
                             <?php if(auth()->guard()->check()): ?>
-                            
+
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <b style="color: #FFFFFF;">Kategori</b>
@@ -86,8 +88,8 @@
                             <!-- Authentication Links -->
                             <?php if(auth()->guard()->guest()): ?>
                             <p class="my-md-4 header-links">
-                                <a href="/tukau/administrator/" class="px-2"> Sign In</a>
-                                <a href="/register" class="px-2"> Create Account </a>
+                                <a href="/login/" class="px-2"> Sign In</a>
+                                <a href="/register/" class="px-2"> Create Account </a>
 
                             </p>
                             <?php if(Route::has('login')): ?>
