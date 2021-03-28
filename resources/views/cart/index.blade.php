@@ -53,7 +53,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <a class="btn btn-primary" method="delete" href="#"
+                        <a class="btn btn-primary" href="/cart/checkout"
                             role="button">Bayar</a>
                     </div>
                 </div>

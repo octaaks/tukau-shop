@@ -35,7 +35,7 @@
                 <a class="my-md-3 site-title text-white" style="margin-right:25px" href="/">
                     <h3>Tukau</h3>
                 </a>
-                
+
                 <a href="/cart" class="btn border">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
@@ -87,22 +87,24 @@
                             <!-- Authentication Links -->
                             @guest
                             <p class="my-md-4 header-links">
-                                <a href="/login/" class="px-2"> Sign In</a>
-                                <a href="/register/" class="px-2"> Create Account </a>
+
+                                @if (Route::has('login'))
+
+                                <a href="{{ route('login') }}" class="px-2"> Sign In</a>
+                                <!-- <li class="nav-item">
+                                <a class="px-2 nav-link" href="{{ route('login') }}"></a>
+                            </li> -->
+                                @endif
+
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="px-2"> Create Account </a>
+                                <!-- <li class="nav-item">
+                                <a class="px-2 nav-link" href="{{ route('register') }}"></a>
+                            </li> -->
+                                @endif
 
                             </p>
-                            @if (Route::has('login'))
 
-                            <li class="nav-item">
-                                <a class="px-2 nav-link" href="{{ route('login') }}"></a>
-                            </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="px-2 nav-link" href="{{ route('register') }}"></a>
-                            </li>
-                            @endif
                             @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -112,9 +114,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <!-- <a class="dropdown-item" href="{{ route('logout') }}" -->
+                                    @role('admin')
                                     <a class="dropdown-item" href="/tukau/administrator/index">
                                         Dashboard
                                     </a>
+                                    @endrole
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

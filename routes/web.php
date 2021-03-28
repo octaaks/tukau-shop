@@ -19,21 +19,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@home')->name('home');
 
-Route::get('/shop/{slug}', 'PagesController@shop');
+//cart
 Route::get('/add-to-cart/{product}', 'CartController@add')->middleware('auth');
 Route::get('/cart', 'CartController@index')->middleware('auth');
 Route::post('/cart/update/{id}', 'CartController@update')->middleware('auth');
 Route::get('/cart/destroy/{id}', 'CartController@destroy')->middleware('auth');
 Route::get('/cart/checkout', 'CartController@checkout')->middleware('auth');
 
+//order
 Route::post('/order/store', 'OrderController@store')->middleware('auth')->name('order.store');
+Route::get('/order/{id}', 'OrderController@show')->middleware('auth');
 
-
+//shop
+Route::get('/shop/{slug}', 'PagesController@shop');
 Route::get('/product/{id}', 'ProductController@show');
 Route::get('/search', 'PagesController@search');
 
-Route::get('/login', 'PagesController@loginPage');
-
+// Route::get('/login', 'PagesController@loginPage')->name('login');
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'PagesController@dashboard')->name('dashboard');
 
 Route::middleware('role:admin')->get('/tukau/administrator/user', 'UserController@index')->name('manageUser');
@@ -42,7 +44,6 @@ Route::middleware('role:admin')->post('/tukau/administrator/user/{id}/update', '
 Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/delete', 'UserController@destroy');
 
 //product
-
 Route::middleware('role:admin')->get('/tukau/administrator/product', 'ProductController@index')->name('manageProduct');
 Route::middleware('role:admin')->get('/tukau/administrator/product/create', 'ProductController@create');
 Route::middleware('role:admin')->post('/tukau/administrator/product/store', 'ProductController@store');

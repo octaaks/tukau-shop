@@ -35,7 +35,7 @@
                 <a class="my-md-3 site-title text-white" style="margin-right:25px" href="/">
                     <h3>Tukau</h3>
                 </a>
-                
+
                 <a href="/cart" class="btn border">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
@@ -88,22 +88,24 @@
                             <!-- Authentication Links -->
                             <?php if(auth()->guard()->guest()): ?>
                             <p class="my-md-4 header-links">
-                                <a href="/login/" class="px-2"> Sign In</a>
-                                <a href="/register/" class="px-2"> Create Account </a>
+
+                                <?php if(Route::has('login')): ?>
+
+                                <a href="<?php echo e(route('login')); ?>" class="px-2"> Sign In</a>
+                                <!-- <li class="nav-item">
+                                <a class="px-2 nav-link" href="<?php echo e(route('login')); ?>"></a>
+                            </li> -->
+                                <?php endif; ?>
+
+                                <?php if(Route::has('register')): ?>
+                                <a href="<?php echo e(route('register')); ?>" class="px-2"> Create Account </a>
+                                <!-- <li class="nav-item">
+                                <a class="px-2 nav-link" href="<?php echo e(route('register')); ?>"></a>
+                            </li> -->
+                                <?php endif; ?>
 
                             </p>
-                            <?php if(Route::has('login')): ?>
 
-                            <li class="nav-item">
-                                <a class="px-2 nav-link" href="<?php echo e(route('login')); ?>"></a>
-                            </li>
-                            <?php endif; ?>
-
-                            <?php if(Route::has('register')): ?>
-                            <li class="nav-item">
-                                <a class="px-2 nav-link" href="<?php echo e(route('register')); ?>"></a>
-                            </li>
-                            <?php endif; ?>
                             <?php else: ?>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -113,9 +115,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <!-- <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" -->
+                                    <?php if(auth()->check() && auth()->user()->hasRole('admin')): ?>
                                     <a class="dropdown-item" href="/tukau/administrator/index">
                                         Dashboard
                                     </a>
+                                    <?php endif; ?>
 
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

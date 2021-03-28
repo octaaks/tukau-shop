@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -14,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('/tukau/administrator/index', ['orders'=> $orders]);
     }
 
     /**
@@ -42,7 +44,7 @@ class OrderController extends Controller
         'shipping_phone' => 'required',
         'shipping_zipcode' => 'required',
         'payment_method' => 'required',
-    ]);
+        ]);
 
         $order = new Order();
 
@@ -84,9 +86,13 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($order)
     {
-        //
+        $categories = Category::all();
+        $order = Order::find($order);
+        $items = DB::table('order_items')->where('order_id', '=', $order);
+        
+        return view('order.view', compact('categories', 'order', 'items'));
     }
 
     /**

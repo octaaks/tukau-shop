@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('adm/plugins/fontawesome-free/css/all.min.css')); ?>">
     <!-- DataTables -->
     <link rel="stylesheet" href="<?php echo e(asset('adm/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')); ?>">
-    <link rel="stylesheet"
-        href="<?php echo e(asset('adm/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('adm/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('adm/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')); ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo e(asset('adm/dist/css/adminlte.min.css')); ?>">
@@ -24,8 +23,6 @@
         <div class="col-lg-12">
             <div class="card card-default">
                 <div class="card-body">
-
-
                     <div class="card-footer text-left">
                         <a href="<?php echo e(url('tukau/administrator/product/create')); ?>" class="btn btn-primary">Add New</a>
                     </div>
@@ -101,7 +98,6 @@
 <!-- <script src="<?php echo e(asset('daterangepicker/newpicker.js')); ?>"></script> -->
 <!-- Page specific script -->
 <script>
-
     jQuery(document).ready(function ($) {
         /* now you can use $ */
 

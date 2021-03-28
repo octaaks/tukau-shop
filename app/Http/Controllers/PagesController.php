@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 use App\Models\Category;
 
 class PagesController extends Controller
@@ -27,7 +28,8 @@ class PagesController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+        $orders = Order::all();
+        return view('dashboard', compact('orders'));
     }
 
     public function manageUser()
