@@ -42,17 +42,18 @@
                         <p class="product-price">Rp. <?php echo e($product->price); ?></p>
                         <div class="row">
                             <div class="col-md-12">
-                                <a href='add-to-cart/<?php echo e($product->id); ?>' class="btn btn-success buy-btn">BELI</a>
+                                <a href='/add-to-cart/<?php echo e($product->id); ?>' class="btn btn-success buy-btn">BELI</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
 </body>
+
 </html>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts/main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\tukau\resources\views/shop.blade.php ENDPATH**/ ?>

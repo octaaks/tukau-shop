@@ -33,7 +33,7 @@
                     </div>
                     @endif
 
-                    <h5> Daftar Pesanan </h5>
+                    <h5>Pesanan Baru Masuk</h5>
                     <table id="tb1" class="table table-bordered table-striped mt-2">
                         <thead>
                             <tr>

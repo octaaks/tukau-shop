@@ -40,16 +40,17 @@
                         <p class="product-price">Rp. {{$product->price}}</p>
                         <div class="row">
                             <div class="col-md-12">
-                                <a href='add-to-cart/{{$product->id}}' class="btn btn-success buy-btn">BELI</a>
+                                <a href='/add-to-cart/{{$product->id}}' class="btn btn-success buy-btn">BELI</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 @endforeach
             </div>
         </div>
     </div>
 </body>
+
 </html>
 @endsection

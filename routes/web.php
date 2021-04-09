@@ -29,14 +29,15 @@ Route::get('/cart/checkout', 'CartController@checkout')->middleware('auth');
 //order
 Route::post('/order/store', 'OrderController@store')->middleware('auth')->name('order.store');
 Route::middleware('role:admin')->get('/order/{id}', 'OrderController@show')->middleware('auth');
+Route::middleware('role:admin')->get('/orderView/{id}', 'OrderController@showOnly')->middleware('auth');
 Route::middleware('role:admin')->get('/order/{id}/cancel', 'OrderController@cancel')->middleware('auth');
 Route::middleware('role:admin')->get('/order/{id}/proccess', 'OrderController@proccess')->middleware('auth');
 
 // Route::get('/login', 'PagesController@loginPage')->name('login');
 Route::middleware('role:admin')->get('/tukau/administrator/index', 'PagesController@dashboard')->name('dashboard');
-Route::middleware('role:admin')->get('/order/pending', 'PagesController@pending')->middleware('auth')->name('pending');
-Route::middleware('role:admin')->get('/order/cancelled', 'PagesController@cancelled')->middleware('auth')->name('cancelled');
-Route::middleware('role:admin')->get('/order/proccessed', 'PagesController@proccessed')->middleware('auth')->name('proccessed');
+Route::middleware('role:admin')->get('/order_pending', 'PagesController@pending')->middleware('auth')->name('pending');
+Route::middleware('role:admin')->get('/order_cancelled', 'PagesController@cancelled')->middleware('auth')->name('cancelled');
+Route::middleware('role:admin')->get('/order_proccessed', 'PagesController@proccessed')->middleware('auth')->name('proccessed');
 
 //shop
 Route::get('/shop/{slug}', 'PagesController@shop');

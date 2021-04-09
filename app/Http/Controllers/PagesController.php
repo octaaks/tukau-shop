@@ -28,18 +28,45 @@ class PagesController extends Controller
 
     public function dashboard()
     {
-        $orders = Order::all();
-        return view('dashboard', compact('orders'));
+        $orders = Order::where('status', '=', 'pending')->get();
+        $pending = Order::where('status', '=', 'pending')->get();
+        return view('dashboard', compact('orders', 'pending'));
+    }
+    
+    public function pending()
+    {
+        $pending = Order::where('status', '=', 'pending')->get();
+        $orders = Order::where('status', '=', 'pending')->get();
+        
+        return view('dashboard', compact('orders', 'pending'));
+    }
+    
+    public function cancelled()
+    {
+        $pending = Order::where('status', '=', 'pending')->get();
+        $orders = Order::where('status', '=', 'dibatalkan')->get();
+        
+        return view('order.cancelled', compact('orders', 'pending'));
+    }
+    
+    public function proccessed()
+    {
+        $orders = Order::where('status', '=', 'diproses')->get();
+        $pending = Order::where('status', '=', 'pending')->get();
+        
+        return view('order.proccessed', compact('orders', 'pending'));
     }
 
     public function manageUser()
     {
-        return view('manageUser');
+        $pending = Order::where('status', '=', 'pending')->get();
+        return view('manageUser', compact('pending'));
     }
 
     public function manageProduct()
     {
-        return view('products.manageProduct');
+        $pending = Order::where('status', '=', 'pending')->get();
+        return view('products.manageProduct', compact('pending'));
     }
 
     public function shop($slug)

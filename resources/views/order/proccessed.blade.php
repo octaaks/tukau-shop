@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title', 'Dashboard')
+@section('title', 'Pesanan Diproses')
 
 @section('container')
 
@@ -33,7 +33,7 @@
                     </div>
                     @endif
 
-                    <h5> Daftar Pesanan </h5>
+                    <h5>Pesanan Diproses</h5>
                     <table id="tb1" class="table table-bordered table-striped mt-2">
                         <thead>
                             <tr>
@@ -57,7 +57,7 @@
                                 <td>{{$order->address}}</td>
                                 <td>{{$order->payment_method}}</td>
                                 <td width="20%">
-                                    <a class="btn btn-primary  btn-sm" href="/order/{{$order->id}}"
+                                    <a class="btn btn-primary  btn-sm" href="/orderView/{{$order->id}}"
                                         role="button">Lihat</a>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                         data-target="#exampleModal">

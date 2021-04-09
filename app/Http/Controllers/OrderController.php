@@ -94,6 +94,15 @@ class OrderController extends Controller
         
         return view('order.view', compact('categories', 'order', 'items'));
     }
+    
+    public function showOnly($order)
+    {
+        $categories = Category::all();
+        $order = Order::find($order);
+        $items = DB::table('order_items')->where('order_id', '=', $order);
+        
+        return view('order.viewOnly', compact('categories', 'order', 'items'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -128,8 +137,21 @@ class OrderController extends Controller
         //
     }
     
-    public function proccess(Order $order)
+    public function proccess($order, Request $request)
     {
+        $param = $request->all();
+        
+        $data = [
+            'status'   => 'diproses'
+        ];
+        
+        try {
+            DB::table('orders') -> where('id', '=', $order) -> update($data);
+                        
+            return redirect('/tukau/administrator/index')->with('success', 'Pesanan dibatalkan!');
+        } catch (\Exception $e) {
+            return redirect('/tukau/administrator/index')->with('error', 'Pesanan tidak ada!');
+        }
     }
     
     public function cancel($order, Request $request)
