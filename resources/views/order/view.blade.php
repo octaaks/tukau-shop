@@ -57,9 +57,9 @@
                             <td>
                                 <ul>
                                     @foreach($order->items()->get() as $item)
-                                        <li>{{$item->pivot->quantity}} {{$item->name}} = Rp. {{$item->price}}</li>
+                                    <li>{{$item->pivot->quantity}} {{$item->name}} = Rp. {{$item->price}}</li>
                                     @endforeach
-                                    
+
                                 </ul>
                             </td>
                         </tr>
@@ -71,7 +71,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <a class="btn btn-info mt-2 " href="/cart/checkout" role="button">Proses Pesanan</a>
+                        <a class="btn btn-info mt-2 " href="/cart/{{$order->id}}/proccess" role="button">Proses
+                            Pesanan</a>
                     </div>
                 </div>
             </div>

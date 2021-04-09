@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+    |--------------------------------------------------------------------------
+    | Web Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
 */
 
 // Route::get('/', function () {
@@ -28,15 +28,21 @@ Route::get('/cart/checkout', 'CartController@checkout')->middleware('auth');
 
 //order
 Route::post('/order/store', 'OrderController@store')->middleware('auth')->name('order.store');
-Route::get('/order/{id}', 'OrderController@show')->middleware('auth');
+Route::middleware('role:admin')->get('/order/{id}', 'OrderController@show')->middleware('auth');
+Route::middleware('role:admin')->get('/order/{id}/cancel', 'OrderController@cancel')->middleware('auth');
+Route::middleware('role:admin')->get('/order/{id}/proccess', 'OrderController@proccess')->middleware('auth');
+
+// Route::get('/login', 'PagesController@loginPage')->name('login');
+Route::middleware('role:admin')->get('/tukau/administrator/index', 'PagesController@dashboard')->name('dashboard');
+Route::middleware('role:admin')->get('/order/pending', 'PagesController@pending')->middleware('auth')->name('pending');
+Route::middleware('role:admin')->get('/order/cancelled', 'PagesController@cancelled')->middleware('auth')->name('cancelled');
+Route::middleware('role:admin')->get('/order/proccessed', 'PagesController@proccessed')->middleware('auth')->name('proccessed');
 
 //shop
 Route::get('/shop/{slug}', 'PagesController@shop');
 Route::get('/product/{id}', 'ProductController@show');
 Route::get('/search', 'PagesController@search');
 
-// Route::get('/login', 'PagesController@loginPage')->name('login');
-Route::middleware('role:admin')->get('/tukau/administrator/index', 'PagesController@dashboard')->name('dashboard');
 
 Route::middleware('role:admin')->get('/tukau/administrator/user', 'UserController@index')->name('manageUser');
 Route::middleware('role:admin')->get('/tukau/administrator/user/{id}/edit', 'UserController@edit');

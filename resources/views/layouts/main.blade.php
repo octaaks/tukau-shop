@@ -40,9 +40,9 @@
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
                         @auth
-                            {{Cart::session(auth()->id())->getContent()->count()}}
+                        {{Cart::session(auth()->id())->getContent()->count()}}
                         @else
-                            0
+                        0
                         @endauth
                     </span>
                 </a>

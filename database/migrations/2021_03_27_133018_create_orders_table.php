@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->string('order_number');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status', ['pending','processing','completed','decline']);
+            $table->enum('status', ['pending','diproses','selesai','dibatalkan']);
             $table->float('grand_total');
             $table->integer('item_count');
             $table->boolean('isPaid')->default(false);

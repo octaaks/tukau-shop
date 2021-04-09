@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Product;
+use App\Models\Category;
 
 use Str;
 use Session;
@@ -85,9 +86,11 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $category = $product->category_id;
+        
+        $categories = Category::all();
 
         $related = Product::where('category_id', '=', $category)->get();
-        return view('products.viewProduct', ['product'=> $product, 'related'=> $related, ]);
+        return view('products.viewProduct', ['product'=> $product, 'related'=> $related, 'categories'=> $categories ]);
     }
 
     /**

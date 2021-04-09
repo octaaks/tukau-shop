@@ -40,10 +40,10 @@
                     <i class="fa fa-shopping-cart"></i>
                     <span class="badge badge-danger navbar-badge">
                         <?php if(auth()->guard()->check()): ?>
-                            <?php echo e(Cart::session(auth()->id())->getContent()->count()); ?>
+                        <?php echo e(Cart::session(auth()->id())->getContent()->count()); ?>
 
                         <?php else: ?>
-                            0
+                        0
                         <?php endif; ?>
                     </span>
                 </a>

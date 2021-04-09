@@ -115,7 +115,6 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
     }
 
     /**
@@ -127,5 +126,26 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    
+    public function proccess(Order $order)
+    {
+    }
+    
+    public function cancel($order, Request $request)
+    {
+        $param = $request->all();
+        
+        $data = [
+            'status'   => 'dibatalkan'
+        ];
+        
+        try {
+            DB::table('orders') -> where('id', '=', $order) -> update($data);
+                        
+            return redirect('/tukau/administrator/index')->with('success', 'Pesanan dibatalkan!');
+        } catch (\Exception $e) {
+            return redirect('/tukau/administrator/index')->with('error', 'Pesanan tidak ada!');
+        }
     }
 }

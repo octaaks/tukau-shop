@@ -64,10 +64,11 @@ class PagesController extends Controller
     {
         $cari = $request->search;
     
+        $categories = Category::all();
         $products = Product::where('name', 'like', "%".$cari."%")
         ->paginate();
     
         // mengirim data pegawai ke view
-        return view('shop', ['items' => $products, 'category' => 'Hasil pencarian untuk "'.$cari.'"']);
+        return view('shop', ['categories'=>$categories,'items' => $products, 'category' => 'Hasil pencarian untuk "'.$cari.'"']);
     }
 }

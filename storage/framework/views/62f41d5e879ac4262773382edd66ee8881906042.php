@@ -170,8 +170,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/" class="brand-link navbar-success">
-                <img src="<?php echo e(asset('/logo.png')); ?>" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?php echo e(asset('/logo.png')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
                 <span class="brand-text font-weight-light">Tukau</span>
             </a>
 
@@ -225,14 +225,43 @@
                                 </p>
                             </a>
                         </li>
-                    
+
                         <li class="nav-item">
                             <a href="/tukau/administrator/product" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Kelola Product 
+                                    Kelola Product
                                 </p>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    UI Elements
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/UI/general.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Semua Pesanan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/icons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Diproses</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/buttons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pesanan Dibatalkan</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
@@ -292,7 +321,7 @@
     <script src="<?php echo e(asset('adm/plugins/jquery-ui/jquery-ui.min.js')); ?>"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="<?php echo e(asset('adm/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
