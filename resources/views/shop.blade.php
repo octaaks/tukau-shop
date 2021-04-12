@@ -15,7 +15,7 @@
 
     <div class="products">
         <div class="container">
-            <a href="/">Tukau Home</a> > {{$category}}
+            <div class=" float-right"><a href="/">Tukau Home</a> > {{$category}}</div>
             <h2>{{$category}}</h2>
             <div class="d-flex flex-wrap">
                 @foreach($items as $product)

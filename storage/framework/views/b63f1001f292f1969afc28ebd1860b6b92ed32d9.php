@@ -15,8 +15,7 @@
 
     <div class="products">
         <div class="container">
-            <a href="/">Tukau Home</a> > <?php echo e($category); ?>
-
+            <div class=" float-right"><a href="/">Tukau Home</a> > <?php echo e($category); ?></div>
             <h2><?php echo e($category); ?></h2>
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
