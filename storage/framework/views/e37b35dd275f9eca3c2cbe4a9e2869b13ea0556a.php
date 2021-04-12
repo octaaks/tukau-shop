@@ -58,7 +58,7 @@
                                 <td><?php echo e($order->address); ?></td>
                                 <td><?php echo e($order->payment_method); ?></td>
                                 <td width="20%">
-                                    <a class="btn btn-primary  btn-sm" href="/order/<?php echo e($order->id); ?>"
+                                    <a class="btn btn-primary  btn-sm" href="/orderView/<?php echo e($order->id); ?>"
                                         role="button">Lihat</a>
 
                                 </td>
