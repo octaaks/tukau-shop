@@ -45,7 +45,7 @@ header .site-title {
 .container .dropdown-toggle,
 .container .dropdown-item {
     font-size: 12px;
-    text-align: left;   
+    text-align: left;
 }
 
 .header-links a {
@@ -358,4 +358,24 @@ header .site-title {
     width: 100%;
 }
 
-.fa {color: white;}
+.fa {
+    color: white;
+}
+
+
+/* .gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.gallery .item {
+    width: calc(98% / 6);
+    position: relative;
+} */

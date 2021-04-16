@@ -74,38 +74,38 @@
     </div>
     <!--products----------------------->
     <div class="d-flex flex-wrap">
+        <!-- <div class="gallery"> -->
 
         @foreach($products as $product)
-            @if( $loop->first or $loop->iteration <= 6 ) 
-        
-                <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="product-info-top">
-                            <div class="rating">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                        </div>
+        @if( $loop->first or $loop->iteration <= 6 ) <div class="card" style="width: 10rem;">
 
-                        <a href="/product/{{$product->id}}" class="product-name">
-                            <h6 style="white-space: nowrap; overflow: hidden;" class="card-title">{{$product->name}}
-                            </h6>
-                        </a>
-                        <p class="product-price">Rp. {{$product->price}}</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href='add-to-cart/{{$product->id}}' class="btn btn-success buy-btn">BELI</a>
-                            </div>
-                        </div>
+            <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
+            <div class="card-body">
+                <div class="product-info-top">
+                    <div class="rating">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
                     </div>
                 </div>
-            @endif
-            <!-- end of single product -->
-        @endforeach
+
+                <a href="/product/{{$product->id}}" class="product-name">
+                    <h6 style="white-space: nowrap; overflow: hidden;" class="card-title">{{$product->name}}
+                    </h6>
+                </a>
+                <p class="product-price">Rp. {{$product->price}}</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href='add-to-cart/{{$product->id}}' class="btn btn-success buy-btn">BELI</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    @endif
+    <!-- end of single product -->
+    @endforeach
 
     </div>
 </section>
