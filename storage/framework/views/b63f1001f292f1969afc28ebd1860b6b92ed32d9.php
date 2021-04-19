@@ -5,7 +5,6 @@
 <?php $__env->startSection('container'); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
-<!-- <link rel="stylesheet" href="<?php echo e(asset('css/style1.css')); ?>"> -->
 
 <!-- font awesome -->
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
@@ -20,10 +19,11 @@
             <div class="d-flex flex-wrap">
                 <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                <div class="card" style="width: 10rem;">
+                <div class="item-card ">
                     <img class="card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
                     <div class="card-body">
                         <div class="product-info-top">
+
                             <div class="rating">
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
@@ -46,7 +46,6 @@
                         </div>
                     </div>
                 </div>
-
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>

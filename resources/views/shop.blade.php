@@ -5,7 +5,6 @@
 @section('container')
 
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
-<!-- <link rel="stylesheet" href="{{asset('css/style1.css')}}"> -->
 
 <!-- font awesome -->
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
@@ -20,10 +19,11 @@
             <div class="d-flex flex-wrap">
                 @foreach($items as $product)
 
-                <div class="card" style="width: 10rem;">
+                <div class="card">
                     <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
                     <div class="card-body">
                         <div class="product-info-top">
+
                             <div class="rating">
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
@@ -45,7 +45,6 @@
                         </div>
                     </div>
                 </div>
-
                 @endforeach
             </div>
         </div>

@@ -77,9 +77,9 @@
         <!-- <div class="gallery"> -->
 
         @foreach($products as $product)
-        @if( $loop->first or $loop->iteration <= 6 ) <div class="card" style="width: 10rem;">
+        @if( $loop->first or $loop->iteration <= 6 ) <div class="card">
 
-            <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
+            <img class=" card-img-top" src="{{$product->image}}" alt="Card image cap">
             <div class="card-body">
                 <div class="product-info-top">
                     <div class="rating">

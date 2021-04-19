@@ -77,9 +77,9 @@
         <!-- <div class="gallery"> -->
 
         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php if( $loop->first or $loop->iteration <= 6 ): ?> <div class="card" style="width: 10rem;">
+        <?php if( $loop->first or $loop->iteration <= 6 ): ?> <div class="card">
 
-            <img class="card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
+            <img class=" card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
             <div class="card-body">
                 <div class="product-info-top">
                     <div class="rating">
