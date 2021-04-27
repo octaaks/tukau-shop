@@ -14,36 +14,24 @@
 
     <div class="products">
         <div class="container">
-            <div class=" float-right"><a href="/">Tukau Home</a> > <?php echo e($category); ?></div>
+            <div class="float-right"><a href="/">Tukau Home</a> > <?php echo e($category); ?></div>
             <h2><?php echo e($category); ?></h2>
-            <div class="d-flex flex-wrap">
-                <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                <div class="item-card ">
+            <div class="d-flex justify-content-start flex-wrap mt-4">
+                <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><div class="card product-card">
                     <img class="card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
                     <div class="card-body">
-                        <div class="product-info-top">
-
-                            <div class="rating">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                        </div>
 
                         <a href="/product/<?php echo e($product->id); ?>" class="product-name">
-                            <h6 style="white-space: nowrap; overflow: hidden;" class="card-title"><?php echo e($product->name); ?>
+                            <h6 style="white-space: nowrap; overflow: hidden;"><?php echo e($product->name); ?>
 
                             </h6>
                         </a>
                         <p class="product-price">Rp. <?php echo e($product->price); ?></p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href='/add-to-cart/<?php echo e($product->id); ?>' class="btn btn-success buy-btn">BELI</a>
-                            </div>
+                        <div class="align-items-right text-right rating">
+                            <p>5 <i class="fas fa-star"></i></p>
                         </div>
+                        <a href='/add-to-cart/<?php echo e($product->id); ?>' class="btn buy-btn"><i class="fas fa-cart-plus"></i>
+                            BUNGKUS</a>
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
