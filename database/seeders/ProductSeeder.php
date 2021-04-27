@@ -7,14 +7,8 @@ use App\Models\Product;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         Product::create([
             'name'          => 'Kentang',
             'category_id'   => 1,
