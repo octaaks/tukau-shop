@@ -19,7 +19,7 @@
             <div class="d-flex flex-wrap">
                 @foreach($items as $product)
 
-                <div class="card">
+                <div class="card product-card">
                     <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
                     <div class="card-body">
                         <div class="product-info-top">

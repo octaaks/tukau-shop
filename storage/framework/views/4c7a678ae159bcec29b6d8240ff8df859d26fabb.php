@@ -51,7 +51,7 @@
         <span>Semua Produk</span>
     </div>
 
-    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div align="center" class="category-box">
         <div class="feature-box">
             <a href="/shop/<?php echo e($category->slug); ?>">
@@ -74,39 +74,39 @@
     </div>
     <!--products----------------------->
     <div class="d-flex flex-wrap">
+        <!-- <div class="gallery"> -->
 
-        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php if( $loop->first or $loop->iteration <= 6 ): ?> 
-        
-                <div class="card" style="width: 10rem;">
-                    <img class="card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="product-info-top">
-                            <div class="rating">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="far fa-star"></i></span>
-                            </div>
-                        </div>
+        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if( $loop->first or $loop->iteration <= 6 ): ?> <div class="card product-card">
 
-                        <a href="/product/<?php echo e($product->id); ?>" class="product-name">
-                            <h6 style="white-space: nowrap; overflow: hidden;" class="card-title"><?php echo e($product->name); ?>
-
-                            </h6>
-                        </a>
-                        <p class="product-price">Rp. <?php echo e($product->price); ?></p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href='add-to-cart/<?php echo e($product->id); ?>' class="btn btn-success buy-btn">BELI</a>
-                            </div>
-                        </div>
+            <img class=" card-img-top" src="<?php echo e($product->image); ?>" alt="Card image cap">
+            <div class="card-body">
+                <div class="product-info-top">
+                    <div class="rating">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
                     </div>
                 </div>
-            <?php endif; ?>
-            <!-- end of single product -->
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                <a href="/product/<?php echo e($product->id); ?>" class="product-name">
+                    <h6 style="white-space: nowrap; overflow: hidden;" class="card-title"><?php echo e($product->name); ?>
+
+                    </h6>
+                </a>
+                <p class="product-price">Rp. <?php echo e($product->price); ?></p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href='add-to-cart/<?php echo e($product->id); ?>' class="btn btn-success buy-btn">BELI</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <?php endif; ?>
+    <!-- end of single product -->
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
     </div>
 </section>
