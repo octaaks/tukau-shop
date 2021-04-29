@@ -15,7 +15,8 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Nama</label>
-                        <input type="text" name="shipping_fullname" id="" class="form-control">
+                        <input type="text" name="shipping_fullname" id="" class="form-control"
+                            value="{{ Auth::user()->name }}">
                     </div>
 
                     <div class="form-group">
@@ -30,12 +31,14 @@
 
                     <div class="form-group">
                         <label for="">Alamat</label>
-                        <input type="text" name="shipping_address" id="" class="form-control">
+                        <input type="text" name="shipping_address" id="" class="form-control"
+                            value="{{ Auth::user()->address }}">
                     </div>
 
                     <div class="form-group">
                         <label for="">No. HP</label>
-                        <input type="text" name="shipping_phone" id="" class="form-control">
+                        <input type="text" name="shipping_phone" id="" class="form-control"
+                            value="{{ Auth::user()->no_hp }}">
                     </div>
 
                     <h4>Metode Pembayaran</h4>

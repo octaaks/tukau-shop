@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -97,5 +100,56 @@ class PagesController extends Controller
     
         // mengirim data pegawai ke view
         return view('shop', ['categories'=>$categories,'items' => $products, 'category' => 'Hasil pencarian untuk "'.$cari.'"']);
+    }
+
+    public function profile()
+    {
+        $categories = Category::all();
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('profile', ['user'=> $user, 'categories'=>$categories]);
+    }
+    
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
+            'address' => 'required',
+            'image' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+
+        $param = $request->all();
+        
+        $data = [
+            'name'      => $param['name'],
+            'email'     => $param['email'],
+            'no_hp'     => $param['no_hp'],
+            'address'   => $param['address']
+        ];
+
+        $file = $request->file('image');
+        
+        // Kalo pas diedit gambar diganti / masukin gambar
+        if ($file) {
+            // menyimpan data file yang diupload ke variabel $file
+            $nama_file = time()."_".$file->getClientOriginalName();
+
+            // isi dengan nama folder tempat kemana file diupload
+            $tujuan_upload = 'data_file/profile';
+            $file->move($tujuan_upload, $nama_file);
+            
+            $data['image'] = "/".$tujuan_upload."/".$nama_file; // Update field photo
+        }
+
+        try {
+            $id = Auth::id();
+            DB::table('users')->where('id', '=', $id)->update($data);
+                        
+            return redirect('/profile')->with('success', 'Profil telah diperbarui!');
+        } catch (\Exception $e) {
+            return redirect('/profile')->with('error', 'Terjadi kesalahan!');
+        }
     }
 }

@@ -63,7 +63,7 @@
 
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b style="color: #FFFFFF;">Kategori</b>
+                                <span class="nav-text">Kategori</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -91,14 +91,14 @@
 
                                 <?php if(Route::has('login')): ?>
 
-                                <a href="<?php echo e(route('login')); ?>" class="px-2"> Sign In</a>
+                                <a href="<?php echo e(route('login')); ?>" class="px-2">Login</a>
                                 <!-- <li class="nav-item">
                                 <a class="px-2 nav-link" href="<?php echo e(route('login')); ?>"></a>
                             </li> -->
                                 <?php endif; ?>
 
                                 <?php if(Route::has('register')): ?>
-                                <a href="<?php echo e(route('register')); ?>" class="px-2"> Create Account </a>
+                                <a href="<?php echo e(route('register')); ?>" class="px-2"> Register</a>
                                 <!-- <li class="nav-item">
                                 <a class="px-2 nav-link" href="<?php echo e(route('register')); ?>"></a>
                             </li> -->
@@ -110,7 +110,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b style="color: #FFFFFF;"><?php echo e(Auth::user()->name); ?></b>
+                                    <span class="nav-text"><?php echo e(Auth::user()->name); ?></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -121,6 +121,8 @@
                                     </a>
                                     <?php endif; ?>
 
+                                    <a class="dropdown-item" href="/profile/"> Profil saya
+                                    </a>
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         <?php echo e(__('Logout')); ?>
@@ -137,6 +139,10 @@
                         </ul>
                     </div>
                 </div>
+
+                <?php if(auth()->guard()->check()): ?>
+                <div><img class="profile-pic" src="<?php echo e(Auth::user()->image); ?>"></div>
+                <?php endif; ?>
             </nav>
         </div>
     </header>

@@ -62,7 +62,7 @@
 
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b style="color: #FFFFFF;">Kategori</b>
+                                <span class="nav-text">Kategori</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach($categories as $key=>$category)
@@ -90,14 +90,14 @@
 
                                 @if (Route::has('login'))
 
-                                <a href="{{ route('login') }}" class="px-2"> Sign In</a>
+                                <a href="{{ route('login') }}" class="px-2">Login</a>
                                 <!-- <li class="nav-item">
                                 <a class="px-2 nav-link" href="{{ route('login') }}"></a>
                             </li> -->
                                 @endif
 
                                 @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="px-2"> Create Account </a>
+                                <a href="{{ route('register') }}" class="px-2"> Register</a>
                                 <!-- <li class="nav-item">
                                 <a class="px-2 nav-link" href="{{ route('register') }}"></a>
                             </li> -->
@@ -109,7 +109,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b style="color: #FFFFFF;">{{ Auth::user()->name }}</b>
+                                    <span class="nav-text">{{ Auth::user()->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -120,6 +120,8 @@
                                     </a>
                                     @endrole
 
+                                    <a class="dropdown-item" href="/profile/"> Profil saya
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -135,6 +137,10 @@
                         </ul>
                     </div>
                 </div>
+
+                @auth
+                <div><img class="profile-pic" src="{{ Auth::user()->image }}"></div>
+                @endauth
             </nav>
         </div>
     </header>

@@ -402,6 +402,16 @@ p i.fas {
     color:#444444;
 }
 
+.navbar .nav-text{
+    color:white;
+    font-weight: 500;
+}
+
+.navbar .profile-pic{
+    border-radius: 25px;
+    height: 50px;
+    width: 50px;
+}
 
 /* .gallery {
     display: -webkit-box;

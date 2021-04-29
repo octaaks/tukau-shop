@@ -58,6 +58,10 @@ Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/edit', '
 Route::middleware('role:admin')->post('/tukau/administrator/product/{id}/update', 'ProductController@update');
 Route::middleware('role:admin')->get('/tukau/administrator/product/{id}/delete', 'ProductController@destroy');
 
+//profile page
+Route::get('/profile', 'PagesController@profile');
+Route::post('/profile/update', 'PagesController@updateProfile');
+
 // Route::get('/', 'PagesController@home');
 // Route::get('/shope', 'PagesController@shope');
 
